@@ -1,0 +1,10 @@
+@import '../sass/variables';
+
+:host {
+  display: block;
+  padding: 2rem;
+
+  h1 {
+    color: $primary-color;
+  }
+}
