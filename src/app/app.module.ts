@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HeaderNavComponent } from './header-nav/header-nav.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderNavComponent
   ],
   imports: [
-    BrowserModule,
-    NgbModule.forRoot()
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
