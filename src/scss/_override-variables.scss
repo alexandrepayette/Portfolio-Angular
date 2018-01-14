@@ -12,7 +12,7 @@
 //$gray-800: #343a40 !default;
 //$gray-900: #212529 !default;
 //$black:    #000 !default;
-//
+
 //$grays: () !default;
 //$grays: map-merge((
 //  "100": $gray-100,
@@ -25,7 +25,7 @@
 //  "800": $gray-800,
 //  "900": $gray-900
 //), $grays);
-//
+
 //$blue:    #007bff !default;
 //$indigo:  #6610f2 !default;
 //$purple:  #6f42c1 !default;
@@ -36,7 +36,7 @@
 //$green:   #28a745 !default;
 //$teal:    #20c997 !default;
 //$cyan:    #17a2b8 !default;
-//
+
 //$colors: () !default;
 //$colors: map-merge((
 //  "blue":       $blue,
@@ -53,7 +53,7 @@
 //  "gray":       $gray-600,
 //  "gray-dark":  $gray-800
 //), $colors);
-//
+
 //$primary:       $blue !default;
 //$secondary:     $gray-600 !default;
 //$success:       $green !default;
@@ -62,28 +62,29 @@
 //$danger:        $red !default;
 //$light:         $gray-100 !default;
 //$dark:          $gray-800 !default;
-//
-//$theme-colors: () !default;
-//$theme-colors: map-merge((
-//  "primary":    $primary,
-//  "secondary":  $secondary,
-//  "success":    $success,
-//  "info":       $info,
-//  "warning":    $warning,
-//  "danger":     $danger,
-//  "light":      $light,
-//  "dark":       $dark
-//), $theme-colors);
+$darker:          $gray-900!default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark,
+  "darker":     $darker
+), $theme-colors);
 //// stylelint-enable
-//
+
 //// Set a specific jump point for requesting color jumps
 //$theme-color-interval:      8% !default;
-//
-//
+
 //// Options
-////
+
 //// Quickly modify global styling by enabling or disabling optional features.
-//
+
 //$enable-caret:              true !default;
 //$enable-rounded:            true !default;
 //$enable-shadows:            false !default;
@@ -92,14 +93,13 @@
 //$enable-hover-media-query:  false !default;
 //$enable-grid-classes:       true !default;
 //$enable-print-styles:       true !default;
-//
-//
+
 //// Spacing
 ////
 //// Control the default styling of most Bootstrap elements by modifying these
 //// variables. Mostly focused on spacing.
 //// You can add more entries to the $spacers map, should you need more variation.
-//
+
 //$spacer: 1rem !default;
 //$spacers: (
 //  0: 0,
@@ -109,7 +109,7 @@
 //  4: ($spacer * 1.5),
 //  5: ($spacer * 3)
 //) !default;
-//
+
 //// This variable affects the `.h-*` and `.w-*` classes.
 //$sizes: (
 //  25: 25%,
@@ -117,14 +117,14 @@
 //  75: 75%,
 //  100: 100%
 //) !default;
-//
+
 //// Body
 ////
 //// Settings for the `<body>` element.
-//
+
 //$body-bg:                   $white !default;
 //$body-color:                $gray-900 !default;
-//
+
 //// Links
 ////
 //// Style anchor elements.
@@ -133,19 +133,18 @@
 //$link-decoration:           none !default;
 //$link-hover-color:          darken($link-color, 15%) !default;
 //$link-hover-decoration:     underline !default;
-//
+
 //// Paragraphs
 ////
 //// Style p element.
-//
+
 //$paragraph-margin-bottom:   1rem !default;
-//
-//
+
 //// Grid breakpoints
 ////
 //// Define the minimum dimensions at which your layout will change,
 //// adapting to different screen sizes, for use in media queries.
-//
+
 //$grid-breakpoints: (
 //  xs: 0,
 //  sm: 576px,
@@ -153,11 +152,10 @@
 //  lg: 992px,
 //  xl: 1200px
 //) !default;
-//
+
 //@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 //@include _assert-starts-at-zero($grid-breakpoints);
-//
-//
+
 //// Grid containers
 ////
 //// Define the maximum width of `.container` for different screen sizes.
@@ -170,106 +168,104 @@
 //) !default;
 //
 //@include _assert-ascending($container-max-widths, "$container-max-widths");
-//
-//
+
 //// Grid columns
 ////
 //// Set the number of columns and specify the width of the gutters.
-//
+
 //$grid-columns:                12 !default;
 //$grid-gutter-width:           30px !default;
-//
+
 //// Components
 ////
 //// Define common padding and border radius sizes and more.
-//
+
 //$line-height-lg:              1.5 !default;
 //$line-height-sm:              1.5 !default;
-//
+
 //$border-width:                1px !default;
 //$border-color:                $gray-200 !default;
-//
+
 //$border-radius:               .25rem !default;
 //$border-radius-lg:            .3rem !default;
 //$border-radius-sm:            .2rem !default;
-//
+
 //$component-active-color:      $white !default;
 //$component-active-bg:         theme-color("primary") !default;
-//
+
 //$caret-width:                 .3em !default;
-//
+
 //$transition-base:             all .2s ease-in-out !default;
 //$transition-fade:             opacity .15s linear !default;
 //$transition-collapse:         height .35s ease !default;
-//
-//
+
 //// Fonts
 ////
 //// Font, line-height, and color for body text, headings, and more.
-//
+
 //// stylelint-disable value-keyword-case
 //$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 //$font-family-monospace:       "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 //$font-family-base:            $font-family-sans-serif !default;
 //// stylelint-enable value-keyword-case
-//
+
 //$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 //$font-size-lg:                ($font-size-base * 1.25) !default;
 //$font-size-sm:                ($font-size-base * .875) !default;
-//
+
 //$font-weight-light:           300 !default;
 //$font-weight-normal:          400 !default;
 //$font-weight-bold:            700 !default;
-//
+
 //$font-weight-base:            $font-weight-normal !default;
 //$line-height-base:            1.5 !default;
-//
+
 //$h1-font-size:                $font-size-base * 2.5 !default;
 //$h2-font-size:                $font-size-base * 2 !default;
 //$h3-font-size:                $font-size-base * 1.75 !default;
 //$h4-font-size:                $font-size-base * 1.5 !default;
 //$h5-font-size:                $font-size-base * 1.25 !default;
 //$h6-font-size:                $font-size-base !default;
-//
+
 //$headings-margin-bottom:      ($spacer / 2) !default;
 //$headings-font-family:        inherit !default;
 //$headings-font-weight:        500 !default;
 //$headings-line-height:        1.2 !default;
 //$headings-color:              inherit !default;
-//
+
 //$display1-size:               6rem !default;
 //$display2-size:               5.5rem !default;
 //$display3-size:               4.5rem !default;
 //$display4-size:               3.5rem !default;
-//
+
 //$display1-weight:             300 !default;
 //$display2-weight:             300 !default;
 //$display3-weight:             300 !default;
 //$display4-weight:             300 !default;
 //$display-line-height:         $headings-line-height !default;
-//
+
 //$lead-font-size:              ($font-size-base * 1.25) !default;
 //$lead-font-weight:            300 !default;
-//
+
 //$small-font-size:             80% !default;
-//
+
 //$text-muted:                  $gray-600 !default;
-//
+
 //$blockquote-small-color:      $gray-600 !default;
 //$blockquote-font-size:        ($font-size-base * 1.25) !default;
-//
+
 //$hr-border-color:             rgba($black,.1) !default;
 //$hr-border-width:             $border-width !default;
-//
+
 //$mark-padding:                .2em !default;
-//
+
 //$dt-font-weight:              $font-weight-bold !default;
-//
+
 //$kbd-box-shadow:              inset 0 -.1rem 0 rgba($black,.25) !default;
 //$nested-kbd-font-weight:      $font-weight-bold !default;
-//
+
 //$list-inline-padding:         5px !default;
-//
+
 //$mark-bg: #fcf8e3 !default;
 //
 //
