@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-darker">
-  <a class="navbar-brand" href="#">
+  <a routerLink="/" class="navbar-brand">
     <img src="../../assets/img/logo.png">
   </a>
   <button class="navbar-toggler"
@@ -13,23 +13,23 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Web Design</a>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a routerLink="/" class="nav-link">Web Design</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Animation</a>
+        <a routerLink="animation" class="nav-link">Animation</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Photo</a>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="photo" class="nav-link">Photo</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Technical Skills</a>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="technical-skills" class="nav-link">Technical Skills</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Experience</a>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="experience" class="nav-link">Experience</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+      <li routerLinkActive="active" class="nav-item">
+        <a routerLink="contact" class="nav-link">Contact</a>
       </li>
     </ul>
   </div>
