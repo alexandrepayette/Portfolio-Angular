@@ -1,5 +1,45 @@
-.navbar-brand {
-  img {
-    width: 114px;
+@media (max-width: 575px) {
+  .navbar-brand {
+    img {
+      width: 90px;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .navbar-brand {
+    img {
+      width: 100px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-link {
+    font-size: 0.84rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    img {
+      width: 114px;
+    }
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-brand {
+    img {
+      width: 130px;
+    }
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
   }
 }
