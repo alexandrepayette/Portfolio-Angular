@@ -14,21 +14,11 @@
   }
 }
 
-@media (min-width: 768px) {
-  .nav-link {
-    font-size: 0.84rem;
-  }
-}
-
 @media (min-width: 992px) {
   .navbar-brand {
     img {
       width: 114px;
     }
-  }
-
-  .nav-link {
-    font-size: 1rem;
   }
 }
 
@@ -37,9 +27,5 @@
     img {
       width: 130px;
     }
-  }
-
-  .nav-link {
-    font-size: 1.1rem;
   }
 }
