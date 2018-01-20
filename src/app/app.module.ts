@@ -13,6 +13,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     TechnicalSkillsComponent,
     ExperienceComponent,
     ContactComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
