@@ -1,3 +1,13 @@
-<p>
-  web-design works!
-</p>
+<ng-select [items]="categories"
+           bindLabel="name"
+           bindValue="name"
+           placeholder="Sort by"
+           [clearable]="false"
+           [(ngModel)]="selectedValue"
+           (change)="onChange()">
+
+  <ng-template>
+    <b>{{item.name}}</b>
+  </ng-template>
+</ng-select>
+
