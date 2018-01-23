@@ -4,7 +4,8 @@
            placeholder="Sort by"
            [clearable]="false"
            [(ngModel)]="selectedValue"
-           (change)="onChange()">
+           (change)="onChange()"
+           class="web-design-sort">
 
   <ng-template>
     <b>{{item.name}}</b>
