@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {NgOption} from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-web-design',
   templateUrl: './web-design.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./web-design.component.scss']
 })
 
