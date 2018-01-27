@@ -1,108 +1,112 @@
 @import "../../../scss/variables";
 
-:host {
-  display: block;
-}
+section.header-section {
+  height: 6rem;
 
-ng-select.web-design-sort {
-  width: 13.13rem;
-  float: right;
-  margin: 1.88rem 2.43rem 0 0;
-
-
-  &.focused:not(.opened) {
-    .ng-control {
-      border-color: $loblolly-blue;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-    }
-
-    .ng-arrow-zone {
-      border-color: $loblolly-blue;
-    }
+  h1 {
+    text-transform: uppercase;
+    font-weight: 200;
   }
-  .ng-control {
-    border-radius: 0.31rem;
-    border: 0.063rem solid $gray-400;
-    cursor: pointer;
-    height: 2rem;
-    overflow: visible;
 
-    .ng-value-container {
-      .ng-placeholder {
-        color: $tiber-blue;
+  ng-select.web-design-sort {
+    width: 13.13rem;
+    margin: 0 2.43rem 0 0;
+
+
+    &.focused:not(.opened) {
+      .ng-control {
+        border-color: $loblolly-blue;
+        -webkit-box-shadow: none;
+        box-shadow: none;
       }
 
-      .ng-input {
-        input {
-          cursor: pointer;
+      .ng-arrow-zone {
+        border-color: $loblolly-blue;
+      }
+    }
+    .ng-control {
+      border-radius: 0.31rem;
+      border: 0.063rem solid $gray-400;
+      cursor: pointer;
+      height: 2rem;
+      overflow: visible;
+
+      .ng-value-container {
+        .ng-placeholder {
+          color: $tiber-blue;
+        }
+
+        .ng-input {
+          input {
+            cursor: pointer;
+          }
         }
       }
     }
-  }
 
-  &.ng-single .ng-control .ng-value-container .ng-input {
-    padding-right: 0.63rem;
-  }
+    &.ng-single .ng-control .ng-value-container .ng-input {
+      padding-right: 0.63rem;
+    }
 
-  &.opened.bottom > .ng-control {
-    border-radius: 0.31rem;
-  }
+    &.opened.bottom > .ng-control {
+      border-radius: 0.31rem;
+    }
 
-  .ng-arrow-zone {
-    padding: 0.31rem 0 0 0.063rem;
-    border-radius: 0.31rem;
-    border: 0.063rem solid $gray-400;
-    height: 2.25rem;
-    margin: 0 -2.5rem 0 0;
-    width: 2.19rem;
+    .ng-arrow-zone {
+      padding: 0.31rem 0 0 0.063rem;
+      border-radius: 0.31rem;
+      border: 0.063rem solid $gray-400;
+      height: 2.25rem;
+      margin: 0 -2.5rem 0 0;
+      width: 2.19rem;
 
-    .ng-arrow {
+      .ng-arrow {
+        border-color: $tiber-blue transparent transparent;
+        border-width: 0.5rem 0.5rem 0.13rem;
+        transition: all 0.3s;
+
+        &:hover {
+          border-color: $venice-blue transparent transparent;
+        }
+      }
+    }
+
+    .ng-select-dropdown-outer {
+      width: 15.56rem;
+      border-radius: 0.38rem;
+      border: 0.063rem solid $gray-400;
+      margin: 0.38rem 0 0 0;
+      opacity: 0;
+      height: 0.81rem;
+      overflow: hidden;
+      -webkit-transition: opacity 0.4s, height 0.4s;
+      transition: opacity 0.4s, height 0.4s;
+
+      .ng-select-dropdown {
+        .ng-option.marked {
+          color: $daintree-blue;
+          background-color: $zircon-blue;
+        }
+        .ng-option.selected {
+          color: $daintree-blue;
+          background-color: $aqua-squeeze-blue;
+        }
+      }
+    }
+
+    &.opened > .ng-control .ng-arrow {
       border-color: $tiber-blue transparent transparent;
       border-width: 0.5rem 0.5rem 0.13rem;
-      transition: all 0.3s;
+      transform: rotate(180deg);
 
       &:hover {
         border-color: $venice-blue transparent transparent;
       }
     }
-  }
 
-  .ng-select-dropdown-outer {
-    width: 15.56rem;
-    border-radius: 0.38rem;
-    border: 0.063rem solid $gray-400;
-    margin: 0.38rem 0 0 0;
-    opacity: 0;
-    height: 0.81rem;
-    overflow: hidden;
-    -webkit-transition: opacity 0.4s, height 0.4s;
-    transition: opacity 0.4s, height 0.4s;
-
-    .ng-select-dropdown {
-      .ng-option.marked {
-        color: $daintree-blue;
-        background-color: $zircon-blue;
-      }
-      .ng-option.selected {
-        color: $daintree-blue;
-        background-color: $aqua-squeeze-blue;
-      }
+    &.opened > .ng-select-dropdown-outer {
+      opacity: 1;
+      height: 10.25rem;
     }
-  }
-
-  &.opened > .ng-control .ng-arrow {
-    border-color: $tiber-blue transparent transparent;
-    border-width: 0.5rem 0.5rem 0.13rem;
-    transform: rotate(180deg);
-
-    &:hover {
-      border-color: $venice-blue transparent transparent;
-    }
-  }
-
-  &.opened > .ng-select-dropdown-outer {
-    opacity: 1;
-    height: 10.25rem;
   }
 }
