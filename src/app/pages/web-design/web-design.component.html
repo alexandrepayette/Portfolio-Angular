@@ -1,14 +1,19 @@
-<ng-select [items]="categories"
-           bindLabel="name"
-           bindValue="name"
-           placeholder="Sort by"
-           [clearable]="false"
-           [(ngModel)]="selectedValue"
-           (change)="onChange()"
-           class="web-design-sort">
+<section class="d-flex justify-content-between align-items-center header-section">
+  <h1>
+    web design
+  </h1>
 
-  <ng-template>
-    <b>{{item.name}}</b>
-  </ng-template>
-</ng-select>
+  <ng-select [items]="categories"
+             bindLabel="name"
+             bindValue="name"
+             placeholder="Sort by"
+             [clearable]="false"
+             [(ngModel)]="selectedValue"
+             (change)="onChange()"
+             class="web-design-sort">
 
+    <ng-template>
+      <b>{{item.name}}</b>
+    </ng-template>
+  </ng-select>
+</section>
