@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { WebDesignModule } from './pages/web-design/web-design.module';
 
 import { AppComponent } from './app.component';
 
@@ -13,8 +16,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { WebDesignModule } from './pages/web-design/web-design.module';
+import {WebDesignService} from './pages/web-design/web-design.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,12 @@ import { WebDesignModule } from './pages/web-design/web-design.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     WebDesignModule
   ],
-  providers: [],
+  providers: [
+    WebDesignService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

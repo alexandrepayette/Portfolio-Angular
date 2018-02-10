@@ -1,5 +1,9 @@
-import {Component, HostBinding, ViewEncapsulation} from '@angular/core';
-import {NgOption} from '@ng-select/ng-select';
+import { Component, OnInit, HostBinding, ViewEncapsulation } from '@angular/core';
+import { NgOption } from '@ng-select/ng-select';
+import 'rxjs/add/operator/retry';
+import { HttpErrorResponse } from '@angular/common/http';
+import { WebDesignService} from './web-design.service';
+import { WebProject } from './web-design-project.model';
 
 // ViewEncapsulation.None -> can not use :host {} in the scss file!
 // Should use @HostBinding('class')...
@@ -10,7 +14,7 @@ import {NgOption} from '@ng-select/ng-select';
   styleUrls: ['./web-design.component.scss']
 })
 
-export class WebDesignComponent {
+export class WebDesignComponent implements OnInit {
   @HostBinding('class') displayBlockClass = 'd-block';
 
   categories: NgOption[] = [
@@ -21,6 +25,32 @@ export class WebDesignComponent {
   ];
 
   selectedValue: any;
+
+  projectList: WebProject[] = [];
+
+  constructor(private webDesignService: WebDesignService) { }
+
+  ngOnInit() {
+    this.getProjects();
+  }
+
+  getProjects() {
+    this.webDesignService.getProjects().retry(1).subscribe(
+      data => {
+        this.projectList = data;
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // Backend returns unsuccessful response codes such as 404, 500 etc.
+          console.log('Backend returned status code: ', err.status);
+          console.log('Response body:', err.error);
+        }
+      }
+    );
+  }
 
   onChange() {
     console.log('Sort by: ' + this.selectedValue);

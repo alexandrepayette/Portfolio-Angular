@@ -18,14 +18,15 @@
   </ng-select>
 </section>
 
-<section class="d-flex flex-wrap web-design-items-container">
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
-  <app-web-design-item></app-web-design-item>
+<section>
+  <div *ngIf="projectList.length; else loading"
+       class="d-flex flex-wrap web-design-items-container">
 
+    <app-web-design-item
+      *ngFor="let project of projectList"
+      [inputProject]="project">
+    </app-web-design-item>
+  </div>
+
+  <ng-template #loading>LOADING WEB PROJECT</ng-template>
 </section>
