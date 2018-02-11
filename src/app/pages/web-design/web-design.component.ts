@@ -27,6 +27,7 @@ export class WebDesignComponent implements OnInit {
   selectedValue: any;
 
   projectList: WebProject[] = [];
+  errorGetProjects = 'noError';
 
   constructor(private webDesignService: WebDesignService) { }
 
@@ -42,9 +43,11 @@ export class WebDesignComponent implements OnInit {
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
           // A client-side or network error occurred.
+          this.errorGetProjects = 'network';
           console.log('An error occurred:', err.error.message);
         } else {
           // Backend returns unsuccessful response codes such as 404, 500 etc.
+          this.errorGetProjects = 'server';
           console.log('Backend returned status code: ', err.status);
           console.log('Response body:', err.error);
         }

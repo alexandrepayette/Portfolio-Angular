@@ -115,6 +115,47 @@ div.web-design-items-container {
   margin:0 0 3.68rem 0;
 }
 
+.loader {
+  border-radius: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: 0 0.6rem 0 0;
+  border-top: 0.2rem solid #dbdedf;
+  border-right: 0.2rem solid #dbdedf;
+  border-bottom: 0.2rem solid #dbdedf;
+  border-left: 0.2rem solid #425b6a;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: loading 0.9s infinite linear;
+  animation: loading 0.9s infinite linear;
+}
+
+.warning {
+  height: 1.6rem;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 575px) {
   app-web-design-item {
     height: 6.81rem;
