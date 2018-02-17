@@ -120,10 +120,10 @@ div.web-design-items-container {
   width: 1.7rem;
   height: 1.7rem;
   margin: 0 0.6rem 0 0;
-  border-top: 0.2rem solid #dbdedf;
-  border-right: 0.2rem solid #dbdedf;
-  border-bottom: 0.2rem solid #dbdedf;
-  border-left: 0.2rem solid #425b6a;
+  border-top: 0.2rem solid $iron-gray;
+  border-right: 0.2rem solid $iron-gray;
+  border-bottom: 0.2rem solid $iron-gray;
+  border-left: 0.2rem solid $fiord-blue;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
@@ -181,12 +181,14 @@ div.web-design-items-container {
 }
 
 @media (min-width: 768px) {
-  app-web-design-item {
-    height: 11.25rem;
+  app-web-design-item,
+  app-web-design-item:nth-child(3n) {
+    width: 23.5%;
+    height: 7.19rem;
     margin: 0 2% 0.94rem 0;
   }
 
-  app-web-design-item:nth-child(3n) {
+  app-web-design-item:nth-child(4n) {
     margin: 0 0 0.94rem 0;
   }
 }
