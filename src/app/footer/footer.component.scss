@@ -1,11 +1,20 @@
-@media (max-width: 575px) {
-  .nav-link {
-    font-size: 0.65rem;
+@media (max-width: 600px) {
+  ul.navbar-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .nav-link {
+      font-size: 0.69rem;
+      padding: 0.4rem 1rem;
+      white-space: nowrap;
+    }
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 601px) and (max-width: 767px) {
   .nav-link {
     font-size: 0.75rem;
+    padding: 0.5rem 0.2rem;
+    white-space: nowrap;
   }
 }
