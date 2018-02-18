@@ -127,73 +127,132 @@
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 380px) {
   :host {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 
-    .project-title {
-      padding: 0.4rem 0.81rem 0 0.5rem;
-    }
+    .item-container {
+      .project-title {
+        padding: 0.3rem 0.4rem 0 0.4rem;
+      }
 
-    .project-date {
-      margin: 0.13rem 0 0 0.5rem;
-    }
-  }
-}
+      .project-date {
+        margin: 0.1rem 0 0 0.4rem;
+      }
 
-@media (max-width: 766px) {
-  :host {
-    font-size: 0.9rem;
+      .triangle-bottomright {
+        border-left-width: 2.8rem;
+        border-bottom-width: 2.4rem;
+        right: -2.8rem;
+      }
 
-    .project-title {
-      padding: 0.5rem 0.81rem 0 0.7rem;
-    }
-
-    .project-date {
-      margin: 0.16rem 0 0 0.7rem;
-    }
-  }
-}
-
-@media (min-width: 200px) and (max-width: 767px) {
-  :host {
-    .triangle-bottomright {
-      border-left-width: 3.75rem;
-      border-bottom-width: 3.13rem;
-      right: -3.75rem;
-    }
-
-    .zoom-in {
-      right: 0.31rem;
-      bottom: 0.31rem;
-    }
-
-    &:hover {
       .zoom-in {
-        width: 1.44rem;
-        height: 1.38rem;
+        right: 0.22rem;
+        bottom: 0.22rem;
+      }
+
+      &:hover {
+        .zoom-in {
+          width: 1.1rem;
+          height: 0.95rem;
+        }
       }
     }
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 381px) and (max-width: 575px) {
   :host {
-    .triangle-bottomright {
-      border-left-width: 4.25rem;
-      border-bottom-width: 3.56rem;
-      right: -4.25rem;
-    }
+    font-size: 0.8rem;
 
-    .zoom-in {
-      right: 0.44rem;
-      bottom: 0.44rem;
-    }
+    .item-container {
+      .project-title {
+        padding: 0.4rem 0.81rem 0 0.5rem;
+      }
 
-    &:hover {
+      .project-date {
+        margin: 0.13rem 0 0 0.5rem;
+      }
+
+      .triangle-bottomright {
+        border-left-width: 3.3rem;
+        border-bottom-width: 2.8rem;
+        right: -3.3rem;
+      }
+
       .zoom-in {
-        width: 1.5rem;
-        height: 1.44rem;
+        right: 0.3rem;
+        bottom: 0.3rem;
+      }
+
+      &:hover {
+        .zoom-in {
+          width: 1.25rem;
+          height: 1.15rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  :host {
+    font-size: 0.9rem;
+    .item-container {
+      .project-title {
+        padding: 0.5rem 0.81rem 0 0.7rem;
+      }
+
+      .project-date {
+        margin: 0.16rem 0 0 0.7rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  :host {
+    .item-container {
+      .triangle-bottomright {
+        border-left-width: 3.8rem;
+        border-bottom-width: 3.3rem;
+        right: -3.8rem;
+      }
+
+      .zoom-in {
+        right: 0.32rem;
+        bottom: 0.32rem;
+      }
+
+      &:hover {
+        .zoom-in {
+          width: 1.42rem;
+          height: 1.33rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  :host {
+    .item-container {
+      .triangle-bottomright {
+        border-left-width: 5.15rem;
+        border-bottom-width: 4.46rem;
+        right: -5.15rem;
+      }
+
+      .zoom-in {
+        right: 0.55rem;
+        bottom: 0.55rem;
+      }
+
+      &:hover {
+        .zoom-in {
+          width: 1.8rem;
+          height: 1.68rem;
+        }
       }
     }
   }

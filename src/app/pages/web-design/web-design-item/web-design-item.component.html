@@ -3,6 +3,8 @@
   <div class="overlay"></div>
   <p class="project-title bold">{{ inputProject.Title_En }}</p>
   <p class="project-date">{{ inputProject.Date}}</p>
-  <div class="triangle-bottomright trianglerouge"></div>
+  <div [ngClass]="'triangle' + inputProject.Color"
+       class="triangle-bottomright">
+  </div>
   <img src="../../../assets/img/zoom.svg" class="zoom-in">
 </div>
