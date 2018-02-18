@@ -156,9 +156,61 @@ div.web-design-items-container {
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 380px) {
+
+  section.header-section {
+    height: 6.5rem;
+    flex-direction: column;
+    padding: 0.3rem 0 1.1rem;
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 0.15rem 0;
+    }
+
+    ng-select.web-design-sort {
+      width: 8.13rem;
+
+      .ng-select-dropdown-outer {
+        width: 10.56rem;
+      }
+    }
+  }
+
   app-web-design-item {
-    height: 6.81rem;
+    height: 4.88rem;
+    width: 31.1%;
+    margin: 0 3% 0.75rem 0;
+  }
+
+  app-web-design-item:nth-child(3n) {
+    margin: 0 0 0.75rem 0;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 575px) {
+
+  section.header-section {
+    height: 6.5rem;
+    flex-direction: column;
+    padding: 0.2rem 0 1.1rem;
+
+    h1 {
+      font-size: 2.05rem;
+      margin: 0 0 0.3rem 0;
+    }
+
+    ng-select.web-design-sort {
+      width: 11.13rem;
+
+      .ng-select-dropdown-outer {
+        width: 13.56rem;
+      }
+    }
+  }
+
+  app-web-design-item {
+    height: 6.5rem;
     width: 31.1%;
     margin: 0 3% 0.94rem 0;
   }
