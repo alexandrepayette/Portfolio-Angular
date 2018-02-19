@@ -19,7 +19,7 @@
 </section>
 
 <section>
-  <div *ngIf="projectList.length; else loading"
+  <div *ngIf="projectsObservable | async as projectList; else loading"
        class="d-flex flex-wrap web-design-items-container">
 
     <app-web-design-item
