@@ -19,13 +19,15 @@ export class WebDesignComponent implements OnInit {
   @HostBinding('class') displayBlockClass = 'd-block';
 
   categories: NgOption[] = [
-    {id: 1, name: 'Color'},
-    {id: 2, name: 'Date'},
-    {id: 3, name: 'Category'},
-    {id: 4, name: 'Name'}
+    {id: 'Color', name: 'Color'},
+    {id: 'Date', name: 'Date'},
+    {id: 'Category', name: 'Category'},
+    {id: 'Title_En', name: 'Name'}
   ];
 
-  selectedValue: any;
+  selectedValue = 'Order';
+  selectedTemp = 'Order';
+  sortInverse = false;
 
   projectsObservable: Observable<WebProject[]>;
   errorGetProjects = 'noError';
@@ -56,6 +58,9 @@ export class WebDesignComponent implements OnInit {
   }
 
   onChange() {
-    console.log('Sort by: ' + this.selectedValue);
+    if ( this.selectedTemp === this.selectedValue ) {
+      this.sortInverse = !this.sortInverse;
+    }
+    this.selectedTemp = this.selectedValue;
   }
 }
