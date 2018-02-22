@@ -5,11 +5,11 @@
 
   <ng-select [items]="categories"
              bindLabel="name"
-             bindValue="name"
+             bindValue="id"
              placeholder="Sort by"
              [clearable]="false"
              [(ngModel)]="selectedValue"
-             (change)="onChange()"
+             (close)="onChange()"
              class="web-design-sort">
 
     <ng-template>
@@ -23,7 +23,7 @@
        class="d-flex flex-wrap web-design-items-container">
 
     <app-web-design-item
-      *ngFor="let project of projectList"
+      *ngFor="let project of projectList | sort:selectedValue:sortInverse"
       [inputProject]="project">
     </app-web-design-item>
   </div>
