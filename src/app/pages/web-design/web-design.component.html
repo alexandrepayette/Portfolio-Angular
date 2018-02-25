@@ -23,36 +23,63 @@
        class="d-flex flex-wrap web-design-items-container">
 
     <app-web-design-item
-      *ngFor="let project of projectList | sort:selectedValue:sortInverse"
-      [inputProject]="project">
+      *ngFor="let project of projectList | sort:selectedValue:sortInverse; let i = index"
+      [inputProject]="project"
+      (click)="openCarousel(i)">
     </app-web-design-item>
   </div>
-
-  <ng-template #loading>
-    <div [ngSwitch]="errorGetProjects" class="d-flex justify-content-start">
-
-      <div *ngSwitchCase="'noError'" class="d-flex align-items-center">
-        <div class="loader"></div>
-        <p>LOADING WEB PROJECT</p>
-      </div>
-
-      <div *ngSwitchCase="'network'"
-           class="card justify-content-start align-items-center flex-row p-2">
-        <img src="../../assets/img/warning.svg" class="warning mx-2">
-        <p class="mr-2">
-          SOMETHING WENT WRONG WITH THE NETWORK :(
-        </p>
-      </div>
-
-      <div *ngSwitchCase="'server'"
-           class="card justify-content-start align-items-center flex-row p-2">
-        <img src="../../assets/img/warning.svg" class="warning mx-2">
-        <p class="mr-2">
-          SOMETHING WENT WRONG WITH THE SERVER :(
-        </p>
-      </div>
-
-    </div>
-  </ng-template>
-
 </section>
+
+<section *ngIf="isCarouselVisible"
+         class="carousel-container"
+         [ngClass]="{'fade-out': isCarouselHidden}">
+  <ui-carousel [infinite]="true"
+               [autoPlay]="true"
+               [autoPlaySpeed]="5000"
+               [fade]="false"
+               [speed]="740"
+               [dots] = "false">
+
+    <ui-carousel-item *ngFor="let item of carouselArray">
+      <img [ui-lazy-load]="'http://acidvoice.com/portfolio_angular/assets/img/web_design/' + item.Id + '.jpg'"
+           draggable="false">
+      <div class="carousel-footer">
+        <p>{{item.Title_En}}</p>
+        <p>{{item.Date}}</p>
+      </div>
+    </ui-carousel-item>
+  </ui-carousel>
+
+  <button type="button"
+          class="btn close-carousel"
+          (click)="closeCarousel()">
+    X
+  </button>
+</section>
+
+<ng-template #loading>
+  <div [ngSwitch]="errorGetProjects" class="d-flex justify-content-start">
+
+    <div *ngSwitchCase="'noError'" class="d-flex align-items-center">
+      <div class="loader"></div>
+      <p>LOADING WEB PROJECT</p>
+    </div>
+
+    <div *ngSwitchCase="'network'"
+         class="card justify-content-start align-items-center flex-row p-2">
+      <img src="../../assets/img/warning.svg" class="warning mx-2">
+      <p class="mr-2">
+        SOMETHING WENT WRONG WITH THE NETWORK :(
+      </p>
+    </div>
+
+    <div *ngSwitchCase="'server'"
+         class="card justify-content-start align-items-center flex-row p-2">
+      <img src="../../assets/img/warning.svg" class="warning mx-2">
+      <p class="mr-2">
+        SOMETHING WENT WRONG WITH THE SERVER :(
+      </p>
+    </div>
+
+  </div>
+</ng-template>

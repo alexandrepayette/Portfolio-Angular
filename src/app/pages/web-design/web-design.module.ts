@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { WebDesignComponent } from './web-design.component';
 import { WebDesignItemComponent } from './web-design-item/web-design-item.component';
 import { ArraySortPipe } from './sort.pipe';
+import { UICarouselModule } from 'ui-carousel';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ArraySortPipe } from './sort.pipe';
   imports: [
     CommonModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    UICarouselModule
   ],
   providers: [
     {
@@ -23,7 +25,8 @@ import { ArraySortPipe } from './sort.pipe';
       useValue: {
         notFoundText: 'This category doesn\'t exist'
       }
-    }
+    },
+    ArraySortPipe
   ]
 })
 
