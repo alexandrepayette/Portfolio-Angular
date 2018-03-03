@@ -1,5 +1,62 @@
 @import "../../../scss/variables";
 
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 section.header-section {
   height: 6rem;
 
@@ -21,9 +78,11 @@ section.header-section {
       }
 
       .ng-arrow-zone {
+        display: block;
         border-color: $loblolly-blue;
       }
     }
+
     .ng-control {
       border-radius: 0.31rem;
       border: 0.063rem solid $gray-400;
@@ -59,6 +118,7 @@ section.header-section {
       height: 2.25rem;
       margin: 0 -2.5rem 0 0;
       width: 2.19rem;
+      display: block;
 
       .ng-arrow {
         border-color: $tiber-blue transparent transparent;
@@ -135,63 +195,6 @@ div.web-design-items-container {
   height: 1.6rem;
 }
 
-@-webkit-keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-from {
-    opacity: 0;
-  }
-to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .carousel-container {
   position: fixed;
   top: 0;
@@ -246,14 +249,6 @@ to {
           font-weight: 200;
         }
       }
-    }
-
-    .arrow.left {
-      left: 1.25rem;
-    }
-
-    .arrow.right {
-      right: 2.2rem;
     }
   }
 
@@ -343,6 +338,48 @@ to {
   app-web-design-item:nth-child(3n) {
     margin: 0 0 0.94rem 0;
   }
+
+  .carousel-container ui-carousel .ui-carousel-item {
+    padding: 0 3rem 4.2rem 1.7rem;
+  }
+
+  .carousel-container ui-carousel .arrow.left {
+    left: 36%;
+    top: 76%;
+  }
+
+  .carousel-container ui-carousel .arrow.right {
+    right: 36%;
+    top: 76%;
+  }
+
+  arrow .arrow {
+    height: 45px !important;
+
+    &::before {
+      width: 22px !important;
+    }
+
+    &::after {
+      width: 22px !important;
+    }
+  }
+
+  // CCS hack for ie 10 & 11
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 95%;
+      flex-shrink: 0;
+    }
+  }
+
+  // CCS hack for edge
+  @supports (-ms-ime-align:auto) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      flex-shrink: 0;
+      width: 95%;
+    }
+  }
 }
 
 @media (min-width: 576px) {
@@ -354,6 +391,42 @@ to {
 
   app-web-design-item:nth-child(3n) {
     margin: 0 0 0.75rem 0;
+  }
+
+  .carousel-container ui-carousel .arrow.left {
+    left: 0.6rem;
+  }
+
+  .carousel-container ui-carousel .arrow.right {
+    right: 1.8rem;
+  }
+
+  arrow .arrow {
+    height: 45px !important;
+
+    &::before {
+      width: 22px !important;
+    }
+
+    &::after {
+      width: 22px !important;
+    }
+  }
+
+  // CCS hack for ie 10 & 11
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 90%;
+      flex-shrink: 0;
+    }
+  }
+
+  // CCS hack for edge
+  @supports (-ms-ime-align:auto) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      flex-shrink: 0;
+      width: 90%;
+    }
   }
 }
 
@@ -368,6 +441,26 @@ to {
   app-web-design-item:nth-child(4n) {
     margin: 0 0 0.94rem 0;
   }
+
+  .carousel-container ui-carousel .arrow.left {
+    left: 1rem;
+  }
+
+  .carousel-container ui-carousel .arrow.right {
+    right: 1.8rem;
+  }
+
+  arrow .arrow {
+    height: 47px !important;
+
+    &::before {
+      width: 25px !important;
+    }
+
+    &::after {
+      width: 25px !important;
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -380,6 +473,40 @@ to {
 
   app-web-design-item:nth-child(4n) {
     margin: 0 0 0.94rem 0;
+  }
+
+  .carousel-container ui-carousel .arrow.left {
+    left: 1.25rem;
+  }
+
+  .carousel-container ui-carousel .arrow.right {
+    right: 2.2rem;
+  }
+
+  arrow .arrow {
+    height: 50px !important;
+
+    &::before {
+      width: 30px !important;
+    }
+
+    &::after {
+      width: 30px !important;
+    }
+  }
+
+  // CCS hack for ie 10 & 11
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 85%;
+    }
+  }
+
+  // CCS hack for edge
+  @supports (-ms-ime-align:auto) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 85%;
+    }
   }
 }
 
@@ -394,5 +521,35 @@ to {
 
   app-web-design-item:nth-child(5n) {
     margin: 0 0 1.13rem 0;
+  }
+
+  // CCS hack for ie 10 & 11
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 65%;
+    }
+  }
+
+  // CCS hack for edge
+  @supports (-ms-ime-align:auto) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 65%;
+    }
+  }
+}
+
+@media (min-width: 1650px) {
+  // CCS hack for ie 10 & 11
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 50%;
+    }
+  }
+
+  // CCS hack for edge
+  @supports (-ms-ime-align:auto) {
+    .carousel-container ui-carousel .ui-carousel-item img {
+      width: 50%;
+    }
   }
 }
