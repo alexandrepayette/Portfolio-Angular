@@ -1,3 +1,39 @@
-<p>
-  photo works!
-</p>
+<section class="d-flex justify-content-between align-items-center header-section">
+  <h1>
+    photo
+  </h1>
+</section>
+
+<section *ngIf="photosObservable | async as photoList; else loading"
+         class="d-flex flex-wrap photos-container">
+  <div *ngFor="let photo of photoList;">
+    <img src="{{photo.url_s}}" alt="{{photo.title}}" title="{{photo.title}}">
+  </div>
+</section>
+
+<ng-template #loading>
+  <div [ngSwitch]="errorGetPhotos" class="d-flex justify-content-start">
+
+    <div *ngSwitchCase="'noError'" class="d-flex align-items-center">
+      <div class="loader"></div>
+      <p>LOADING PHOTOS FROM Flickr</p>
+    </div>
+
+    <div *ngSwitchCase="'network'"
+         class="card justify-content-start align-items-center flex-row p-2">
+      <img src="../../assets/img/warning.svg" class="warning mx-2">
+      <p class="mr-2">
+        SOMETHING WENT WRONG WITH THE NETWORK :(
+      </p>
+    </div>
+
+    <div *ngSwitchCase="'server'"
+         class="card justify-content-start align-items-center flex-row p-2">
+      <img src="../../assets/img/warning.svg" class="warning mx-2">
+      <p class="mr-2">
+        SOMETHING WENT WRONG WITH THE SERVER :(
+      </p>
+    </div>
+
+  </div>
+</ng-template>
