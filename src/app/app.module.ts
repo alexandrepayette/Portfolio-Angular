@@ -16,7 +16,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FooterComponent } from './footer/footer.component';
 
-import {WebDesignService} from './pages/web-design/web-design.service';
+import { WebDesignService } from './pages/web-design/web-design.service';
+import { PhotoService } from './pages/photo/photo.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {WebDesignService} from './pages/web-design/web-design.service';
     WebDesignModule
   ],
   providers: [
-    WebDesignService
+    WebDesignService,
+    PhotoService
   ],
   bootstrap: [AppComponent]
 })
