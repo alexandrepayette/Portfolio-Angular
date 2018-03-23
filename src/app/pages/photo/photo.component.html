@@ -7,7 +7,7 @@
 <section *ngIf="photosObservable | async as photoList; else loading"
          class="d-flex flex-wrap photos-container">
   <div *ngFor="let photo of photoList;">
-    <img src="{{photo.url_s}}" alt="{{photo.title}}" title="{{photo.title}}">
+    <img src="{{photo.url}}" alt="{{photo.title}}" title="{{photo.title}}">
   </div>
 </section>
 
