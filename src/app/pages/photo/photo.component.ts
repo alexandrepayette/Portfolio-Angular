@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { PhotoService } from './photo.service';
+import { PhotoItem } from './photo-item.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/map';
 })
 export class PhotoComponent implements OnInit {
 
-  public photosObservable: Observable<any>;
+  public photosObservable: Observable<PhotoItem[]>;
   public errorGetPhotos = 'noError';
 
   private tags = 'best';
@@ -29,7 +30,16 @@ export class PhotoComponent implements OnInit {
   displayPhotos() {
     this.photosObservable = this.photoService.getPhotos(this.tags, this.photoFormat, this.perPage, this.page)
 
-      .map((data) => data.photos.photo)
+      .map(res => {
+        return res.photos.photo
+          .map(item => {
+              return {
+                title: item.title,
+                url: item.url_s
+              };
+            }
+          );
+      })
 
       .catch((err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -46,6 +56,6 @@ export class PhotoComponent implements OnInit {
         return Observable.throw(err);
       });
 
-    this.photosObservable.subscribe(data => { console.log(data); });
+    this.photosObservable.subscribe(res => { console.log(res); });
   }
 }
