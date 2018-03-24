@@ -18,7 +18,7 @@ export class PhotoComponent implements OnInit {
   private tags = 'best';
   // url_s = 160x240, url_t = 66x100, url_q = 150x150, url_m = 333x500
   private photoFormat = 'url_s';
-  private perPage = 60;
+  private perPage = 20;
   private page = 1;
 
   constructor(private photoService: PhotoService) { }
@@ -29,17 +29,6 @@ export class PhotoComponent implements OnInit {
 
   displayPhotos() {
     this.photosObservable = this.photoService.getPhotos(this.tags, this.photoFormat, this.perPage, this.page)
-
-      .map(res => {
-        return res.photos.photo
-          .map(item => {
-              return {
-                title: item.title,
-                url: item.url_s
-              };
-            }
-          );
-      })
 
       .catch((err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -56,6 +45,6 @@ export class PhotoComponent implements OnInit {
         return Observable.throw(err);
       });
 
-    this.photosObservable.subscribe(res => { console.log(res); });
+   //this.photosObservable.subscribe(res => { console.log(res); });
   }
 }
