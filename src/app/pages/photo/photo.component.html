@@ -2,6 +2,16 @@
   <h1>
     photo
   </h1>
+  <section *ngIf="numberOfPagesObservable | async as numberOfPage"
+           class="d-flex justify-content-end pagination-container">
+    <button *ngFor="let page of numberOfPage"
+            (click)="displayPhotos(page)"
+            type="button"
+            class="btn btn-light ml-2"
+            [ngClass]="{'active-button': page === pageToDisplay}">
+      {{page}}
+    </button>
+  </section>
 </section>
 
 <section *ngIf="photosObservable | async as photoList; else loading"
