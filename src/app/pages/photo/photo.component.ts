@@ -13,22 +13,25 @@ import 'rxjs/add/operator/map';
 export class PhotoComponent implements OnInit {
 
   public photosObservable: Observable<PhotoItem[]>;
+  public numberOfPagesObservable: Observable<Array<number>>;
   public errorGetPhotos = 'noError';
+  public pageToDisplay = 1; // initial page
 
   private tags = 'best';
   // url_s = 160x240, url_t = 66x100, url_q = 150x150, url_m = 333x500
   private photoFormat = 'url_s';
   private perPage = 20;
-  private page = 1;
 
   constructor(private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.displayPhotos();
+    this.displayPhotos(this.pageToDisplay);
+    this.getNumberOfPages();
   }
 
-  displayPhotos() {
-    this.photosObservable = this.photoService.getPhotos(this.tags, this.photoFormat, this.perPage, this.page)
+  displayPhotos(pageNumber: number) {
+    this.pageToDisplay = pageNumber;
+    this.photosObservable = this.photoService.getPhotosArray(this.tags, this.photoFormat, this.perPage, pageNumber)
 
       .catch((err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -45,6 +48,10 @@ export class PhotoComponent implements OnInit {
         return Observable.throw(err);
       });
 
-   //this.photosObservable.subscribe(res => { console.log(res); });
+   // this.photosObservable.subscribe(res => { console.log(res); });
+  }
+
+  getNumberOfPages() {
+    this.numberOfPagesObservable = this.photoService.getNumberOfPages(this.tags, this.photoFormat, this.perPage);
   }
 }

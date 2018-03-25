@@ -9,8 +9,22 @@ section.header-section {
   }
 }
 
+section.pagination-container {
+  margin: 0 0.5rem 0 0;
+
+  button.active-button {
+    background-color: darken($zircon-blue, 2%);
+    border-color: darken($loblolly-blue, 12%);
+
+    &:hover {
+      background-color: lighten($zircon-blue, 1%);
+      border-color: darken($loblolly-blue, 10%);
+    }
+  }
+}
+
 section.photos-container {
-  margin-bottom: 3.63rem;
+  margin: 0 0 3.6rem 0;
 
   div {
     width: 13.1rem;

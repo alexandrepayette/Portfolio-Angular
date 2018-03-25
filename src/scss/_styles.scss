@@ -1,5 +1,17 @@
+@import "../scss/variables";
+
 p {
   margin: 0;
+}
+
+button.btn-light {
+  background-color: lighten($zircon-blue, 2%);
+  border-color: $loblolly-blue;
+
+  &:hover {
+    background-color: lighten($zircon-blue, 4%);
+    border-color: darken($loblolly-blue, 5%);
+  }
 }
 
 @media (min-width: 768px) {
