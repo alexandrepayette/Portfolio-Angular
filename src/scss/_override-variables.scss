@@ -1,4 +1,4 @@
-//// Color system
+@import "../scss/colors";
 
 //// stylelint-disable
 $white:    #fff !default;
@@ -393,13 +393,13 @@ $h1-font-size:                  2.7rem;
 //$custom-control-description-disabled-color:     $gray-600 !default;
 //
 //$custom-control-indicator-checked-color:        $white !default;
-//$custom-control-indicator-checked-bg:           theme-color("primary") !default;
+$custom-control-indicator-checked-bg:             $fiord-blue !default;
 //$custom-control-indicator-checked-box-shadow:   none !default;
 //
 //$custom-control-indicator-focus-box-shadow:     0 0 0 1px $body-bg, $input-btn-focus-box-shadow !default;
 //
 //$custom-control-indicator-active-color:         $white !default;
-//$custom-control-indicator-active-bg:            lighten(theme-color("primary"), 35%) !default;
+$custom-control-indicator-active-bg:              lighten($fiord-blue, 8%) !default;
 //$custom-control-indicator-active-box-shadow:    none !default;
 //
 //$custom-checkbox-indicator-border-radius:       $border-radius !default;

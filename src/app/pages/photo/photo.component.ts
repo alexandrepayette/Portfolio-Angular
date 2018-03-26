@@ -16,8 +16,8 @@ export class PhotoComponent implements OnInit {
   public numberOfPagesObservable: Observable<Array<number>>;
   public errorGetPhotos = 'noError';
   public pageToDisplay = 1; // initial page
+  public tags = 'best';
 
-  private tags = 'best';
   // url_s = 160x240, url_t = 66x100, url_q = 150x150, url_m = 333x500
   private photoFormat = 'url_s';
   private perPage = 20;
@@ -53,5 +53,12 @@ export class PhotoComponent implements OnInit {
 
   getNumberOfPages() {
     this.numberOfPagesObservable = this.photoService.getNumberOfPages(this.tags, this.photoFormat, this.perPage);
+  }
+
+  displayFormat(orientation: string) {
+    this.tags = orientation;
+    this.perPage = orientation === 'best' ? 20 : 21;
+    this.getNumberOfPages();
+    this.displayPhotos(this.pageToDisplay);
   }
 }

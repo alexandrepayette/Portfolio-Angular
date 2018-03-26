@@ -2,19 +2,54 @@
   <h1>
     photo
   </h1>
-  <section *ngIf="numberOfPagesObservable | async as numberOfPage"
-           class="d-flex justify-content-end pagination-container">
-    <button *ngFor="let page of numberOfPage"
-            (click)="displayPhotos(page)"
-            type="button"
-            class="btn btn-light ml-2"
-            [ngClass]="{'active-button': page === pageToDisplay}">
-      {{page}}
-    </button>
-  </section>
+
+  <div class="d-flex justify-content-end pagination-container">
+    <div class="d-flex radio-container">
+
+      <div class="custom-control custom-radio">
+        <input type="radio"
+               class="custom-control-input"
+               id="horizontalRadio"
+               name="radio-in-line"
+               checked>
+        <label (click)="displayFormat('best')"
+               class="custom-control-label"
+               for="horizontalRadio">
+          Horizontal
+        </label>
+      </div>
+
+      <div class="custom-control custom-radio">
+        <input type="radio"
+               class="custom-control-input"
+               id="verticalRadio"
+               name="radio-in-line">
+        <label (click)="displayFormat('bestv')"
+               class="custom-control-label"
+               for="verticalRadio">
+          Vertical
+        </label>
+      </div>
+    </div>
+
+    <div class="pages-number-container">
+      <div *ngIf="numberOfPagesObservable | async as numberOfPage"
+           class="d-flex">
+        <button *ngFor="let page of numberOfPage"
+                (click)="displayPhotos(page)"
+                type="button"
+                class="btn btn-light ml-2"
+                [ngClass]="{'active-button': page === pageToDisplay}">
+          {{page}}
+        </button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section *ngIf="photosObservable | async as photoList; else loading"
+         [ngClass]="(tags === 'best') ? 'horizontal':'vertical'"
          class="d-flex flex-wrap photos-container">
   <div *ngFor="let photo of photoList;">
     <img src="{{photo.url}}" alt="{{photo.title}}" title="{{photo.title}}">
