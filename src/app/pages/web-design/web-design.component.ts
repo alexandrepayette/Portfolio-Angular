@@ -1,11 +1,15 @@
 import { Component, OnInit, HostBinding, ViewEncapsulation } from '@angular/core';
 import { NgOption } from '@ng-select/ng-select';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { WebDesignService} from './web-design.service';
-import { WebProject } from './web-design-project.model';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
+
 import { ArraySortPipe } from './sort.pipe';
+import { WebProject } from './web-design-project.model';
+
+import { Observable } from 'rxjs/Observable';
+import { map, catchError } from 'rxjs/operators';
+
 
 // ViewEncapsulation.None -> can not use :host {} in the scss file!
 // Should use @HostBinding('class')...
@@ -47,22 +51,21 @@ export class WebDesignComponent implements OnInit {
   getProjects() {
     this.projectsObservable = this.webDesignService.getProjects()
 
-      .catch((err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          // A client-side or network error occurred. Handle it accordingly.
-          this.errorGetProjects = 'network';
-          console.log('An error occurred:', err.error.message);
-        } else {
-          // The backend returned an unsuccessful response code.
-          // The response body may contain clues as to what went wrong,
-          this.errorGetProjects = 'server';
-          console.log('Backend returned status code: ', err.status);
-          console.log('Response body:', err.error);
-        }
-        return Observable.throw(err);
-      });
-
-    this.projectsObservable.subscribe(data => { this.sortedArray = data; });
+      .pipe(
+        map(res => this.sortedArray = res),
+        catchError((err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Client-side or network error occurred.
+            this.errorGetProjects = 'network';
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // Server-side error occurred.
+            this.errorGetProjects = 'server';
+            console.log('Server-side error: ' + err.message);
+          }
+          return Observable.throw(err);
+        })
+      );
   }
 
   onChange() {
@@ -89,6 +92,6 @@ export class WebDesignComponent implements OnInit {
     setTimeout(() => {
       this.isCarouselVisible = false;
       this.isCarouselHidden = false;
-      }, 200);
+    }, 200);
   }
 }
