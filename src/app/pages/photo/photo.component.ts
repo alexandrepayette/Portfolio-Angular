@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PhotoService } from './photo.service';
 import { PhotoItem } from './photo-item.model';
 import { HttpErrorResponse } from '@angular/common/http';
+
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-photo',
@@ -33,22 +34,22 @@ export class PhotoComponent implements OnInit {
     this.pageToDisplay = pageNumber;
     this.photosObservable = this.photoService.getPhotosArray(this.tags, this.photoFormat, this.perPage, pageNumber)
 
-      .catch((err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          // A client-side or network error occurred. Handle it accordingly.
-          this.errorGetPhotos = 'network';
-          console.log('An error occurred:', err.error.message);
-        } else {
-          // The backend returned an unsuccessful response code.
-          // The response body may contain clues as to what went wrong,
-          this.errorGetPhotos = 'server';
-          console.log('Backend returned status code: ', err.status);
-          console.log('Response body:', err.error);
-        }
-        return Observable.throw(err);
-      });
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Client-side or network error occurred.
+            this.errorGetPhotos = 'network';
+            console.log('An error occurred:', err.error.message);
+          } else {
+            // Server-side error occurred.
+            this.errorGetPhotos = 'server';
+            console.log('Server-side error: ' + err.message);
+          }
+          return Observable.throw(err);
+        })
+      );
 
-   // this.photosObservable.subscribe(res => { console.log(res); });
+    // this.photosObservable.subscribe(res => { console.log(res); });
   }
 
   getNumberOfPages() {

@@ -7,6 +7,10 @@ import { WebDesignItemComponent } from './web-design-item/web-design-item.compon
 import { ArraySortPipe } from './sort.pipe';
 import { UICarouselModule } from 'ui-carousel';
 
+import { HttpCacheService } from '../../shared/http-cache.service';
+import { CacheInterceptor } from '../../shared/cache.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     WebDesignComponent,
@@ -26,6 +30,8 @@ import { UICarouselModule } from 'ui-carousel';
         notFoundText: 'This category doesn\'t exist'
       }
     },
+    {provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true},
+    HttpCacheService,
     ArraySortPipe
   ]
 })
