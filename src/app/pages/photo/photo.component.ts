@@ -15,7 +15,7 @@ export class PhotoComponent implements OnInit {
 
   public photosObservable: Observable<PhotoItem[]>;
   public numberOfPagesObservable: Observable<Array<number>>;
-  public errorGetPhotos = 'noError';
+  public errorGetPhotos: string;
   public pageToDisplay = 1; // initial page
   public tags = 'best';
 
@@ -31,6 +31,7 @@ export class PhotoComponent implements OnInit {
   }
 
   displayPhotos(pageNumber: number) {
+    this.errorGetPhotos = this.photoService.getErrorMessage();
     this.pageToDisplay = pageNumber;
     this.photosObservable = this.photoService.getPhotosArray(this.tags, this.photoFormat, this.perPage, pageNumber)
 
@@ -38,18 +39,28 @@ export class PhotoComponent implements OnInit {
         catchError((err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
             // Client-side or network error occurred.
-            this.errorGetPhotos = 'network';
-            console.log('An error occurred:', err.error.message);
+            this.getErrorMessage();
+            this.setHttpErrorMessage(err.message);
           } else {
             // Server-side error occurred.
-            this.errorGetPhotos = 'server';
-            console.log('Server-side error: ' + err.message);
+            this.getErrorMessage();
+            this.setHttpErrorMessage(err.message);
           }
           return Observable.throw(err);
         })
       );
 
     // this.photosObservable.subscribe(res => { console.log(res); });
+  }
+
+  getErrorMessage() {
+    this.errorGetPhotos = this.photoService.getErrorMessage();
+  }
+
+  setHttpErrorMessage(message: string) {
+    if (this.errorGetPhotos === 'noError') {
+      this.errorGetPhotos = message;
+    }
   }
 
   getNumberOfPages() {
