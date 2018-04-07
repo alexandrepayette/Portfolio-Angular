@@ -57,28 +57,18 @@
 </section>
 
 <ng-template #loading>
-  <div [ngSwitch]="errorGetPhotos" class="d-flex justify-content-start">
 
-    <div *ngSwitchCase="'noError'" class="d-flex align-items-center">
-      <div class="loader"></div>
-      <p>LOADING PHOTOS FROM Flickr</p>
-    </div>
-
-    <div *ngSwitchCase="'network'"
-         class="card justify-content-start align-items-center flex-row p-2">
-      <img src="../../assets/img/warning.svg" class="warning mx-2">
-      <p class="mr-2">
-        SOMETHING WENT WRONG WITH THE NETWORK :(
-      </p>
-    </div>
-
-    <div *ngSwitchCase="'server'"
-         class="card justify-content-start align-items-center flex-row p-2">
-      <img src="../../assets/img/warning.svg" class="warning mx-2">
-      <p class="mr-2">
-        SOMETHING WENT WRONG WITH THE SERVER :(
-      </p>
-    </div>
-
+  <div *ngIf="errorGetPhotos === 'noError'; else errorMessage" class="d-flex align-items-center">
+    <div class="loader"></div>
+    <p>LOADING PHOTOS FROM Flickr</p>
   </div>
+  <ng-template #errorMessage>
+    <div class="card justify-content-start align-items-center flex-row p-2">
+      <img src="../../assets/img/warning.svg" class="warning mx-2">
+      <p class="mr-2">
+        <span>SOMETHING WENT WRONG: </span><span>{{errorGetPhotos}}</span>
+      </p>
+    </div>
+  </ng-template>
+
 </ng-template>
