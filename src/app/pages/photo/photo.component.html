@@ -1,12 +1,12 @@
-<section class="d-flex justify-content-between align-items-center header-section">
+<section class="d-flex justify-content-md-between justify-content-sm-start align-items-center header-section">
   <h1>
     photo
   </h1>
 
-  <div class="d-flex justify-content-end pagination-container">
-    <div class="d-flex radio-container">
+  <div class="d-flex justify-content-md-between justify-content-sm-start pagination-container mt-sm-2 mt-md-0">
+    <div class="d-flex pt-md-2 radio-container ">
 
-      <div class="custom-control custom-radio">
+      <div class="custom-control custom-radio mt-sm-3 mt-md-0">
         <input type="radio"
                class="custom-control-input"
                id="horizontalRadio"
@@ -32,24 +32,22 @@
       </div>
     </div>
 
-    <div class="pages-number-container">
-      <div *ngIf="numberOfPagesObservable | async as numberOfPage"
-           class="d-flex">
+    <div *ngIf="numberOfPagesObservable | async as numberOfPage"
+         class="d-flex pages-number-container">
         <button *ngFor="let page of numberOfPage"
                 (click)="displayPhotos(page)"
                 type="button"
-                class="btn btn-light ml-2"
+                class="btn btn-light ml-2 mb-sm-2"
                 [ngClass]="{'active-button': page === pageToDisplay}">
           {{page}}
         </button>
-      </div>
     </div>
 
   </div>
 </section>
 
 <section *ngIf="photosObservable | async as photoList; else loading"
-         [ngClass]="(tags === 'best') ? 'horizontal':'vertical'"
+         [ngClass]="(orientationTag === 'best') ? 'horizontal':'vertical'"
          class="d-flex flex-wrap photos-container">
   <div *ngFor="let photo of photoList;">
     <img src="{{photo.url}}" alt="{{photo.title}}" title="{{photo.title}}">
