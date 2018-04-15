@@ -14,6 +14,26 @@ button.btn-light {
   }
 }
 
+.loader {
+  border-radius: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: 0 0.6rem 0 0;
+  border-top: 0.2rem solid $iron-gray;
+  border-right: 0.2rem solid $iron-gray;
+  border-bottom: 0.2rem solid $iron-gray;
+  border-left: 0.2rem solid $fiord-blue;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: loading 0.9s infinite linear;
+  animation: loading 0.9s infinite linear;
+}
+
+.warning {
+  height: 1.6rem;
+}
+
 @media (min-width: 768px) {
   .nav-link {
     font-size: 0.84rem;
