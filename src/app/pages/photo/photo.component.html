@@ -49,9 +49,33 @@
 <section *ngIf="photosObservable | async as photoList; else loading"
          [ngClass]="(orientationTag === 'best') ? 'horizontal':'vertical'"
          class="d-flex flex-wrap photos-container">
-  <div *ngFor="let photo of photoList;">
+  <div *ngFor="let photo of photoList; let i = index"
+       (click)="openCarousel(i)">
     <img src="{{photo.url}}" alt="{{photo.title}}" title="{{photo.title}}">
   </div>
+</section>
+
+<section *ngIf="isCarouselVisible && photosCarouselObservable | async"
+         class="carousel-container"
+         [ngClass]="{'fade-out': isCarouselHidden}">
+  <ui-carousel [infinite]="true"
+               [autoPlay]="false"
+               [autoPlaySpeed]="5000"
+               [fade]="false"
+               [speed]="740"
+               [dots] = "false">
+
+    <ui-carousel-item *ngFor="let photo of carouselArray;">
+      <img [ui-lazy-load]="photo.url"
+           draggable="false">
+    </ui-carousel-item>
+  </ui-carousel>
+
+  <button type="button"
+          class="btn close-carousel"
+          (click)="closeCarousel()">
+    X
+  </button>
 </section>
 
 <ng-template #loading>

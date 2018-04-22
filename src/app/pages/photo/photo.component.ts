@@ -15,17 +15,24 @@ import { Subject } from 'rxjs/Subject';
 export class PhotoComponent implements OnInit, OnDestroy {
 
   public photosObservable: Observable<PhotoItem[]>;
+  public photosCarouselObservable: Observable<PhotoItem[]>;
+  public originalOrderArray: PhotoItem[];
+  public carouselArray: PhotoItem[];
   public numberOfPagesObservable: Observable<Array<number>>;
   public errorGetPhotos: string;
   public pageToDisplay = 1; // initial page
   public orientationTag = 'best'; // initial horizontal orientation
+  public isCarouselVisible = false;
+  public isCarouselHidden = false;
 
   // url_s = 160x240, url_t = 66x100, url_q = 150x150, url_m = 333x500
-  private photoFormat = 'url_s';
+  private photoSmallFormat = 'url_s';
+  private photoCarouselFormat = 'url_m';
   private perPage: number;
   private numberOfPages: number;
   private windowSize: number;
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  private numberOfPagesUnsubscribe: Subject<void> = new Subject<void>();
+  private photosCarouselUnsubscribe: Subject<void> = new Subject<void>();
   private timeout: number;
 
   constructor(private photoService: PhotoService) { }
@@ -33,15 +40,14 @@ export class PhotoComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getWindowSize();
     this.setPhotosPerPageOrientation();
-    this.displayPhotos(this.pageToDisplay);
     this.getNumberOfPages();
   }
 
   displayPhotos(pageNumber: number): void {
     this.errorGetPhotos = this.photoService.getErrorMessage();
     this.pageToDisplay = pageNumber;
-    this.photosObservable = this.photoService.getPhotosArray(this.orientationTag, this.photoFormat, this.perPage, pageNumber)
 
+    this.photosObservable = this.photoService.getPhotosArray(this.orientationTag, this.photoSmallFormat, this.perPage, pageNumber)
       .pipe(
         catchError((err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
@@ -56,6 +62,26 @@ export class PhotoComponent implements OnInit, OnDestroy {
           return Observable.throw(err);
         })
       );
+
+    this.photosCarouselObservable = this.photoService.getPhotosArray(this.orientationTag, this.photoCarouselFormat, this.perPage, pageNumber)
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          if (err.error instanceof Error) {
+            // Client-side or network error occurred.
+            this.getErrorMessage();
+            this.setHttpErrorMessage(err.message);
+          } else {
+            // Server-side error occurred.
+            this.getErrorMessage();
+            this.setHttpErrorMessage(err.message);
+          }
+          return Observable.throw(err);
+        })
+      );
+
+    this.photosCarouselObservable
+      .pipe(takeUntil(this.photosCarouselUnsubscribe))
+      .subscribe(res => this.originalOrderArray = res);
   }
 
   getErrorMessage(): void {
@@ -69,8 +95,7 @@ export class PhotoComponent implements OnInit, OnDestroy {
   }
 
   getNumberOfPages(): void {
-    // console.log('orientationTag: ' + this.orientationTag + ' photoFormat: ' + this.photoFormat + ' perPage: ' + this.perPage);
-    this.numberOfPagesObservable = this.photoService.getNumberOfPages(this.orientationTag, this.photoFormat, this.perPage);
+    this.numberOfPagesObservable = this.photoService.getNumberOfPages(this.orientationTag, this.photoSmallFormat, this.perPage);
   }
 
   displayFormat(orientation: string): void {
@@ -78,7 +103,7 @@ export class PhotoComponent implements OnInit, OnDestroy {
     this.setPhotosPerPageOrientation();
     this.getNumberOfPages();
     this.numberOfPagesObservable
-      .pipe(takeUntil(this.ngUnsubscribe))
+      .pipe(takeUntil(this.numberOfPagesUnsubscribe))
       .subscribe(
         res => this.numberOfPages = res.length,
         err => console.error('Can not get the number of pages: ' + err),
@@ -108,7 +133,6 @@ export class PhotoComponent implements OnInit, OnDestroy {
       this.windowSize = 12;
     }
 
-    // console.log('windowSize: ' + this.windowSize);
     this.displayFormat(this.orientationTag);
   }
 
@@ -136,8 +160,26 @@ export class PhotoComponent implements OnInit, OnDestroy {
     }
   }
 
+  openCarousel(index) {
+    // Reordering the originalOrderArray from the clicked item index
+    this.carouselArray = this.originalOrderArray.slice(index).concat(this.originalOrderArray.slice(0, index));
+    this.isCarouselVisible = true;
+  }
+
+  closeCarousel() {
+    // Apply fade-out css class to the carousel section
+    this.isCarouselHidden = true;
+
+    setTimeout(() => {
+      this.isCarouselVisible = false;
+      this.isCarouselHidden = false;
+    }, 200);
+  }
+
   ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.photosCarouselUnsubscribe.next();
+    this.photosCarouselUnsubscribe.complete();
+    this.numberOfPagesUnsubscribe.next();
+    this.numberOfPagesUnsubscribe.complete();
   }
 }

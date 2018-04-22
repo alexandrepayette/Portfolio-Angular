@@ -21,42 +21,6 @@
   }
 }
 
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fadeout {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 section.header-section {
   height: 6rem;
 
@@ -175,87 +139,6 @@ div.web-design-items-container {
   margin:0 0 3.68rem 0;
 }
 
-.carousel-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.94);
-  width: 100vw;
-  height: 100vh;
-  -webkit-animation: fadein 0.2s ease-out forwards;
-  animation: fadein 0.2s ease-out forwards;
-
-  &.fade-out {
-    -webkit-animation: fadeout 0.2s ease-in forwards;
-    animation: fadeout 0.2s ease-in forwards;
-  }
-
-  ui-carousel {
-    width: 100%;
-    height: 100% !important;
-
-    .ui-carousel-item {
-      display: flex;
-      flex-direction: column;
-      background-color: transparent;
-      padding: 0 5rem 4.2rem 4rem;
-
-      img {
-        margin: auto;
-        max-width: 100%;
-        max-height: 96%;
-        height: auto;
-      }
-
-      .carousel-footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 4.5rem;
-        background-color: $black;
-        color: $white;
-        text-align: center;
-        padding: 0.5rem 0 0.6rem 0;
-
-        p:first-child {
-          font-size: 1.2rem;
-        }
-
-        p:nth-child(2){
-          font-weight: 200;
-        }
-      }
-    }
-  }
-
-  .close-carousel {
-    background-color: transparent;
-    width: 2.18rem;
-    height: 2.18rem;
-    position: absolute;
-    top: 1.2rem;
-    right: 3rem;
-    color: $gray-500;
-    font-size: 2.25rem;
-    font-weight: lighter;
-    padding: 0;
-    line-height: 1rem;
-    font-family: "Segoe UI Light", Helvetica, Arial, sans-serif;
-
-    &:hover {
-      color: $gray-100;
-    }
-
-    &:focus {
-      box-shadow: none;
-    }
-  }
-}
-
 @media (max-width: 380px) {
 
   section.header-section {
@@ -318,48 +201,6 @@ div.web-design-items-container {
   app-web-design-item:nth-child(3n) {
     margin: 0 0 0.94rem 0;
   }
-
-  .carousel-container ui-carousel .ui-carousel-item {
-    padding: 0 3rem 4.2rem 1.7rem;
-  }
-
-  .carousel-container ui-carousel .arrow.left {
-    left: 36%;
-    top: 76%;
-  }
-
-  .carousel-container ui-carousel .arrow.right {
-    right: 36%;
-    top: 76%;
-  }
-
-  arrow .arrow {
-    height: 45px !important;
-
-    &::before {
-      width: 22px !important;
-    }
-
-    &::after {
-      width: 22px !important;
-    }
-  }
-
-  // CCS hack for ie 10 & 11
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 95%;
-      flex-shrink: 0;
-    }
-  }
-
-  // CCS hack for edge
-  @supports (-ms-ime-align:auto) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      flex-shrink: 0;
-      width: 95%;
-    }
-  }
 }
 
 @media (min-width: 576px) {
@@ -371,42 +212,6 @@ div.web-design-items-container {
 
   app-web-design-item:nth-child(3n) {
     margin: 0 0 0.75rem 0;
-  }
-
-  .carousel-container ui-carousel .arrow.left {
-    left: 0.6rem;
-  }
-
-  .carousel-container ui-carousel .arrow.right {
-    right: 1.8rem;
-  }
-
-  arrow .arrow {
-    height: 45px !important;
-
-    &::before {
-      width: 22px !important;
-    }
-
-    &::after {
-      width: 22px !important;
-    }
-  }
-
-  // CCS hack for ie 10 & 11
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 90%;
-      flex-shrink: 0;
-    }
-  }
-
-  // CCS hack for edge
-  @supports (-ms-ime-align:auto) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      flex-shrink: 0;
-      width: 90%;
-    }
   }
 }
 
@@ -421,26 +226,6 @@ div.web-design-items-container {
   app-web-design-item:nth-child(4n) {
     margin: 0 0 0.94rem 0;
   }
-
-  .carousel-container ui-carousel .arrow.left {
-    left: 1rem;
-  }
-
-  .carousel-container ui-carousel .arrow.right {
-    right: 1.8rem;
-  }
-
-  arrow .arrow {
-    height: 47px !important;
-
-    &::before {
-      width: 25px !important;
-    }
-
-    &::after {
-      width: 25px !important;
-    }
-  }
 }
 
 @media (min-width: 992px) {
@@ -453,40 +238,6 @@ div.web-design-items-container {
 
   app-web-design-item:nth-child(4n) {
     margin: 0 0 0.94rem 0;
-  }
-
-  .carousel-container ui-carousel .arrow.left {
-    left: 1.25rem;
-  }
-
-  .carousel-container ui-carousel .arrow.right {
-    right: 2.2rem;
-  }
-
-  arrow .arrow {
-    height: 50px !important;
-
-    &::before {
-      width: 30px !important;
-    }
-
-    &::after {
-      width: 30px !important;
-    }
-  }
-
-  // CCS hack for ie 10 & 11
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 85%;
-    }
-  }
-
-  // CCS hack for edge
-  @supports (-ms-ime-align:auto) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 85%;
-    }
   }
 }
 
@@ -501,35 +252,5 @@ div.web-design-items-container {
 
   app-web-design-item:nth-child(5n) {
     margin: 0 0 1.13rem 0;
-  }
-
-  // CCS hack for ie 10 & 11
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 65%;
-    }
-  }
-
-  // CCS hack for edge
-  @supports (-ms-ime-align:auto) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 65%;
-    }
-  }
-}
-
-@media (min-width: 1650px) {
-  // CCS hack for ie 10 & 11
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 50%;
-    }
-  }
-
-  // CCS hack for edge
-  @supports (-ms-ime-align:auto) {
-    .carousel-container ui-carousel .ui-carousel-item img {
-      width: 50%;
-    }
   }
 }

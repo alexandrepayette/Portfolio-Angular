@@ -10,7 +10,7 @@ export class PhotoService {
   constructor(private http: HttpClient) { }
 
   private photoUrl: string;
-  public errorMessage= 'noError';
+  public errorMessage = 'noError';
 
   getPhotoUrl (tags: string, photoFormat: string, perPage: number, pageNumber?: number) {
     this.photoUrl = `https://api.flickr.com/services/rest/?method=flickr.photos.search\
