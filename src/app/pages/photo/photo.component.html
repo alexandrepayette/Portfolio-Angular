@@ -80,7 +80,8 @@
 
 <ng-template #loading>
 
-  <div *ngIf="errorGetPhotos === 'noError'; else errorMessage" class="d-flex align-items-center">
+  <div *ngIf="errorGetPhotos === 'noError' || errorGetPhotos === undefined; else errorMessage"
+       class="d-flex align-items-center">
     <div class="loader"></div>
     <p>LOADING PHOTOS FROM Flickr</p>
   </div>
