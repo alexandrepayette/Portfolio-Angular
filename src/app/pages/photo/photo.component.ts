@@ -95,7 +95,20 @@ export class PhotoComponent implements OnInit, OnDestroy {
   }
 
   getNumberOfPages(): void {
-    this.numberOfPagesObservable = this.photoService.getNumberOfPages(this.orientationTag, this.photoSmallFormat, this.perPage);
+    this.numberOfPagesObservable = this.photoService.getNumberOfPages(this.orientationTag, this.photoSmallFormat, this.perPage).pipe(
+      catchError((err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // Client-side or network error occurred.
+          this.getErrorMessage();
+          this.setHttpErrorMessage(err.message);
+        } else {
+          // Server-side error occurred.
+          this.getErrorMessage();
+          this.setHttpErrorMessage(err.message);
+        }
+        return Observable.throw(err);
+      })
+    );
   }
 
   displayFormat(orientation: string): void {
