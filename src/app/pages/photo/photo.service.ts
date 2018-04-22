@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PhotoItem } from './photo-item.model';
 import { Observable } from 'rxjs/Observable';
-import { map, tap } from 'rxjs/operators';
+import { map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class PhotoService {
@@ -49,6 +49,11 @@ tags=${tags}\
     this.getPhotoUrl(tags, photoFormat, perPage);
     return this.http.get<any>(this.photoUrl)
       .pipe(
+        tap(res => {
+          if (res.stat === 'fail') {
+            this.errorMessage = res.message;
+          }
+        }),
         map(res => Array.from({length: res.photos.pages}, (x, i) => i + 1))
       );
   }
