@@ -8,7 +8,7 @@
   text-transform: uppercase;
   font-weight: 500;
 
-  .item-container {
+  .item-project-container {
     height: 100%;
     position: relative;
     background-repeat: no-repeat;
@@ -164,7 +164,7 @@
   :host {
     font-size: 0.8rem;
 
-    .item-container {
+    .item-project-container {
       .project-title {
         padding: 0.4rem 0.81rem 0 0.5rem;
       }
@@ -197,7 +197,7 @@
 @media (min-width: 576px) {
   :host {
     font-size: 0.9rem;
-    .item-container {
+    .item-project-container {
       .project-title {
         padding: 0.5rem 0.81rem 0 0.7rem;
       }
@@ -208,7 +208,7 @@
 @media (min-width: 768px) {
   :host {
     font-size: 0.9rem;
-    .item-container {
+    .item-project-container {
       .triangle-bottomright {
         border-left-width: 3.8rem;
         border-bottom-width: 3.3rem;
@@ -234,7 +234,7 @@
   :host {
     font-size: 1.063rem;
 
-    .item-container {
+    .item-project-container {
       .triangle-bottomright {
         border-left-width: 5.15rem;
         border-bottom-width: 4.46rem;
@@ -255,4 +255,3 @@
     }
   }
 }
-
