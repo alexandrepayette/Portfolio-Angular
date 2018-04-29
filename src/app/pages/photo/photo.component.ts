@@ -1,4 +1,4 @@
-import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostBinding, HostListener, OnDestroy, OnInit} from '@angular/core';
 import { PhotoService } from './photo.service';
 import { PhotoItem } from './photo-item.model';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./photo.component.scss']
 })
 export class PhotoComponent implements OnInit, OnDestroy {
+  @HostBinding('class') displayBlockClass = 'd-block';
 
   public photosObservable: Observable<PhotoItem[]>;
   public photosCarouselObservable: Observable<PhotoItem[]>;

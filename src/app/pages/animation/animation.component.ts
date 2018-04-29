@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { AnimationService } from './animation.service';
+import { AnimationProject } from './animation-project.model';
 
 @Component({
   selector: 'app-animation',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./animation.component.scss']
 })
 export class AnimationComponent implements OnInit {
+  @HostBinding('class') displayBlockClass = 'd-block';
 
-  constructor() { }
+  animationProjets: AnimationProject[] = [];
+
+  constructor( private animationService: AnimationService) { }
 
   ngOnInit() {
+    this.getAnimationProjets();
   }
 
+  getAnimationProjets(): void {
+    this.animationProjets = this.animationService.getProjects();
+  }
 }

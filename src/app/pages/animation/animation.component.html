@@ -1,3 +1,17 @@
-<p>
-  animation works!
-</p>
+<h1>
+  animation
+</h1>
+
+<section class="d-flex flex-wrap animation-items-container">
+  <div *ngFor="let project of animationProjets"
+       [ngStyle]="{'background-image': 'url(../../assets/img/animation/' + project.imageUrl + '.jpg)'}"
+       class="item-project-container">
+    <div class="overlay"></div>
+    <p class="project-title bold">{{project.title}}</p>
+    <p class="project-date">{{project.date}}</p>
+    <div [ngClass]="'triangle' + project.color"
+         class="triangle-bottomright">
+    </div>
+    <img src="../../assets/img/zoom.svg" class="zoom-in">
+  </div>
+</section>
