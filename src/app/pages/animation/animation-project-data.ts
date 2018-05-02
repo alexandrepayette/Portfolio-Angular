@@ -113,7 +113,7 @@ export const ANIMATIONPROJECTS: AnimationProject[] = [
     imageUrl: 'reebok',
     title: 'Reebok Prototype',
     date: 2007,
-    color: 'gris'
+    color: 'rouge'
   },
   {
     imageUrl: 'carte-noel-mvm',

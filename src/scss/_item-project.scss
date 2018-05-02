@@ -1,0 +1,116 @@
+.item-project-container {
+  cursor: pointer;
+  overflow: hidden;
+  color: $white;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: $black;
+    position: absolute;
+    @include transition(opacity);
+  }
+
+  .project-title {
+    position: relative;
+    padding: 0.94rem 0.81rem 0 0.81rem;
+    opacity: 0;
+    @include transition(opacity, 0.15s);
+  }
+
+  .project-date {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0.1rem 0 0 0.81rem;
+    opacity: 0;
+    @include transition(opacity, 0.15s);
+  }
+
+  .zoom-in {
+    opacity: 0;
+    position: absolute;
+    width: 0.063rem;
+    height: 0.063rem;
+    right: 0.69rem;
+    bottom: 0.56rem;
+  }
+
+  .triangle-bottomright {
+    width: 0;
+    height: 0;
+    border-left: 4.94rem solid transparent;
+    border-bottom: 4.13rem solid transparent;
+    position: absolute;
+    right: -4.94rem;
+    bottom: 0;
+    @include transition(right);
+  }
+
+  .trianglerouge {
+    border-bottom-color: $red;
+  }
+
+  .trianglegris {
+    border-bottom-color: $gray-700;
+  }
+
+  .triangleblanc {
+    border-bottom-color: $gray-600;
+  }
+
+  .trianglebleu {
+    border-bottom-color: $blue;
+  }
+
+  .trianglevert {
+    border-bottom-color: $green;
+  }
+
+  .triangleorange {
+    border-bottom-color:$orange;
+  }
+
+  .trianglerose {
+    border-bottom-color: $pink;
+  }
+
+  .trianglebrun {
+    border-bottom-color: $brown;
+  }
+
+  .trianglemauve {
+    border-bottom-color: $purple;
+  }
+
+  &:hover {
+    .overlay {
+      opacity: 0.8;
+    }
+
+    .project-title {
+      opacity: 1;
+    }
+
+    .project-date {
+      opacity: 1;
+    }
+
+    .triangle-bottomright {
+      right: 0;
+    }
+
+    .zoom-in {
+      opacity: 1;
+      width: 1.5rem;
+      height: 1.56rem;
+      @include transition(all, 0.2s, ease-in-out, 0.1s);
+    }
+  }
+}

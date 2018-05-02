@@ -10,7 +10,6 @@ import { WebProject } from './web-design-project.model';
 import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 
-
 // ViewEncapsulation.None -> can not use :host {} in the scss file!
 // Should use @HostBinding('class')...
 @Component({
