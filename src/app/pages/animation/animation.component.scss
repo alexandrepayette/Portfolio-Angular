@@ -1,7 +1,6 @@
 @import "../../../scss/variables";
 
 h1 {
-  height: 6rem;
   text-transform: uppercase;
   font-weight: 200;
   padding: 1.38rem 0 0 0;
@@ -16,84 +15,197 @@ section.animation-items-container {
   h1 {
     font-size: 2rem;
     margin: 0 0 0.15rem 0;
+    height: 5rem;
   }
 
   .item-project-container {
-    height: 4.88rem;
-    width: 31.1%;
-    margin: 0 3% 0.75rem 0;
+    font-size: 0.6rem;
+    line-height: 0.7rem;
+    height: 20vw;
+    width: 32%;
+    margin: 0 2% 2% 0;
+
+    .project-title {
+      padding: 0.3rem 0.4rem 0 0.4rem;
+    }
+
+    .project-date {
+      margin: 0.1rem 0 0 0.4rem;
+    }
+
+    .triangle-bottomright {
+      border-left-width: 3rem;
+      border-bottom-width: 2.5rem;
+      right: -3rem;
+    }
+
+    .zoom-in {
+      right: 0.24rem;
+      bottom: 0.24rem;
+    }
+
+    &:hover {
+      .zoom-in {
+        width: 1.2rem;
+        height: 1.1rem;
+      }
+    }
   }
 
   .item-project-container:nth-child(3n) {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 2% 0;
   }
 }
 
 @media (min-width: 381px) and (max-width: 575px) {
 
-    h1 {
-      font-size: 2.05rem;
-      margin: 0 0 0.3rem 0;
-    }
+  h1 {
+    font-size: 2.05rem;
+    margin: 0 0 0.3rem 0;
+    height: 5rem;
+  }
 
   .item-project-container {
-    height: 6.5rem;
-    width: 31.1%;
-    margin: 0 3% 0.94rem 0;
+    font-size: 0.75rem;
+    line-height: 0.9rem;
+    height: 20vw;
+    width: 32%;
+    margin: 0 2% 2% 0;
+
+    .project-title {
+      padding: 0.4rem 0.5rem 0 0.5rem;
+    }
+
+    .project-date {
+      margin: 0.13rem 0 0 0.5rem;
+    }
+
+    .triangle-bottomright {
+      border-left-width: 3.3rem;
+      border-bottom-width: 2.8rem;
+      right: -3.3rem;
+    }
+
+    .zoom-in {
+      right: 0.3rem;
+      bottom: 0.3rem;
+    }
+
+    &:hover {
+      .zoom-in {
+        width: 1.25rem;
+        height: 1.15rem;
+      }
+    }
   }
 
   .item-project-container:nth-child(3n) {
-    margin: 0 0 0.94rem 0;
+    margin: 0 0 2% 0;
   }
 }
 
 @media (min-width: 576px) {
+  h1 {
+    height: 6rem;
+  }
+
   .item-project-container {
-    height: 7.69rem;
-    width: 32%;
-    margin: 0 2% 0.75rem 0;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    height: 7.07rem;
+    width: 10.188rem;
+    margin: 0 0.65rem 0.65rem 0;
+
+    .project-title {
+      padding: 0.6rem 0.8rem 0 0.8rem;
+    }
+
+    .triangle-bottomright {
+      border-left-width: 3.8rem;
+      border-bottom-width: 3.3rem;
+      right: -3.8rem;
+    }
+
+    .zoom-in {
+      right: 0.32rem;
+      bottom: 0.32rem;
+    }
+
+    &:hover {
+      .zoom-in {
+        width: 1.42rem;
+        height: 1.33rem;
+      }
+    }
   }
 
   .item-project-container:nth-child(3n) {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.65rem 0;
   }
 }
 
 @media (min-width: 768px) {
+
   .item-project-container,
   .item-project-container:nth-child(3n) {
-    width: 23.5%;
-    height: 7.19rem;
-    margin: 0 2% 0.94rem 0;
+    font-size: 0.9rem;
+    line-height: 1.1rem;
+    width: 10.125rem;
+    height: 7.113rem;
+    margin: 0 0.7rem 0.7rem 0;
   }
 
   .item-project-container:nth-child(4n) {
-    margin: 0 0 0.94rem 0;
+    margin: 0 0 0.7rem 0;
   }
 }
 
 @media (min-width: 992px) {
   .item-project-container,
   .item-project-container:nth-child(3n) {
-    height: 10.31rem;
-    width: 23.85%;
-    margin: 0 1.5% 0.94rem 0;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    height: 9.586rem;
+    width: 13.813rem;
+    margin: 0 0.75rem 0.75rem 0;
+  }
+
+  .item-project-container {
+    .project-title {
+      padding: 0.94rem 0.81rem 0 0.81rem;
+    }
+
+    .triangle-bottomright {
+      border-left-width: 5.15rem;
+      border-bottom-width: 4.46rem;
+      right: -5.15rem;
+    }
+
+    .zoom-in {
+      right: 0.55rem;
+      bottom: 0.55rem;
+    }
+
+    &:hover {
+      .zoom-in {
+        width: 1.8rem;
+        height: 1.68rem;
+      }
+    }
   }
 
   .item-project-container:nth-child(4n) {
-    margin: 0 0 0.94rem 0;
+    margin: 0 0 0.75rem 0;
   }
 }
 
 @media (min-width: 1200px) {
   .item-project-container,
   .item-project-container:nth-child(3n) {
+    font-size: 1.063rem;
+    line-height: 1.5rem;
     height: 11.625rem;
     width: 16.75rem;
-    margin: 0 0.75rem 0.75rem 0;
-  }
 
-  .item-project-container:nth-child(4n) {
-    margin: 0 0 0.75rem 0;
   }
 }

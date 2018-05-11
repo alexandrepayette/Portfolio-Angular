@@ -140,13 +140,13 @@ div.web-design-items-container {
   }
 
   app-web-design-item {
-    height: 4.88rem;
-    width: 31.1%;
-    margin: 0 3% 0.75rem 0;
+    height: 20vw;
+    width: 32%;
+    margin: 0 2% 2% 0;
   }
 
   app-web-design-item:nth-child(3n) {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 2% 0;
   }
 }
 
@@ -172,13 +172,13 @@ div.web-design-items-container {
   }
 
   app-web-design-item {
-    height: 6.5rem;
-    width: 31.1%;
-    margin: 0 3% 0.94rem 0;
+    height: 20vw;
+    width: 32%;
+    margin: 0 2% 2% 0;
   }
 
   app-web-design-item:nth-child(3n) {
-    margin: 0 0 0.94rem 0;
+    margin: 0 0 2% 0;
   }
 }
 
