@@ -3,4 +3,6 @@ export interface AnimationProject {
   title: string;
   date: number;
   color: string;
+  width: number;
+  height: number;
 }

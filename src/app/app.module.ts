@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { WebDesignModule } from './pages/web-design/web-design.module';
 import { PhotoModule } from './pages/photo/photo.module';
+import { AnimationModule } from './pages/animation/animation.module';
 
 import { AppComponent } from './app.component';
 
 import { HeaderNavComponent } from './header-nav/header-nav.component';
-import { AnimationComponent } from './pages/animation/animation.component';
 import { TechnicalSkillsComponent } from './pages/technical-skills/technical-skills.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -24,7 +24,6 @@ import { AnimationService } from './pages/animation/animation.service';
   declarations: [
     AppComponent,
     HeaderNavComponent,
-    AnimationComponent,
     TechnicalSkillsComponent,
     ExperienceComponent,
     ContactComponent,
@@ -36,7 +35,8 @@ import { AnimationService } from './pages/animation/animation.service';
     AppRoutingModule,
     HttpClientModule,
     WebDesignModule,
-    PhotoModule
+    PhotoModule,
+    AnimationModule
   ],
   providers: [
     WebDesignService,

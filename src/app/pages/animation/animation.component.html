@@ -3,8 +3,9 @@
 </h1>
 
 <section class="d-flex flex-wrap animation-items-container">
-  <div *ngFor="let project of animationProjets"
+  <div *ngFor="let project of animationProjets; let i = index"
        [ngStyle]="{'background-image': 'url(../../assets/img/animation/' + project.imageUrl + '.jpg)'}"
+       (click)="openCarousel(i)"
        class="item-project-container">
     <div class="overlay"></div>
     <p class="project-title bold">{{project.title}}</p>
@@ -14,4 +15,39 @@
     </div>
     <img src="../../assets/img/zoom.svg" class="zoom-in">
   </div>
+</section>
+
+<section *ngIf="isCarouselVisible"
+         class="carousel-container"
+         [ngClass]="{'fade-out': isCarouselHidden}">
+  <ui-carousel [infinite]="true"
+               [autoPlay]="false"
+               [autoPlaySpeed]="5000"
+               [fade]="false"
+               [speed]="740"
+               [dots] = "false">
+
+    <ui-carousel-item *ngFor="let project of carouselArray;">
+      <video width="{{project.width}}" height="{{project.height}}" controls
+             [poster]="'/assets/img/animation/' + project.imageUrl + '-video.jpg'">
+        <source
+          [src]="'/assets/img/animation/' + project.imageUrl + '.mp4'"
+          type="video/mp4">
+        <source
+          [src]="'C:/assets/img/animation/' + project.imageUrl + '.ogv'"
+          type="video/ogg">
+        Your browser doesn't support HTML5 video tag.
+      </video>
+      <div class="carousel-footer">
+        <p>{{project.title}}</p>
+        <p>{{project.date}}</p>
+      </div>
+    </ui-carousel-item>
+  </ui-carousel>
+
+  <button type="button"
+          class="btn close-carousel"
+          (click)="closeCarousel()">
+    X
+  </button>
 </section>
