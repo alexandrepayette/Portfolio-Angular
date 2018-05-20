@@ -28,13 +28,14 @@
                [dots] = "false">
 
     <ui-carousel-item *ngFor="let project of carouselArray;">
-      <video width="{{project.width}}" height="{{project.height}}" controls
-             [poster]="'/assets/img/animation/' + project.imageUrl + '-video.jpg'">
+      <video controls
+             [poster]="'/assets/img/animation/' + project.imageUrl + '-video.jpg'"
+             [style.max-width.px]="project.width">
         <source
-          [src]="'/assets/img/animation/' + project.imageUrl + '.mp4'"
+          [src]="'/assets/img/animation/' + project.imageUrl + lowRes + '.mp4'"
           type="video/mp4">
         <source
-          [src]="'C:/assets/img/animation/' + project.imageUrl + '.ogv'"
+          [src]="'C:/assets/img/animation/' + project.imageUrl + lowRes +'.ogv'"
           type="video/ogg">
         Your browser doesn't support HTML5 video tag.
       </video>

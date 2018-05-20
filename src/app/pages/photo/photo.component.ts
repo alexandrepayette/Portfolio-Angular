@@ -133,7 +133,7 @@ export class PhotoComponent implements OnInit, OnDestroy {
   getWindowSize(): void {
     const windowWidth = window.innerWidth;
 
-    if (window.innerWidth < 381) {
+    if (windowWidth < 381) {
       this.windowSize = 3;
     } else if (windowWidth >= 381 && windowWidth < 575) {
       this.windowSize = 4;

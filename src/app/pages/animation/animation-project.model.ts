@@ -4,5 +4,4 @@ export interface AnimationProject {
   date: number;
   color: string;
   width: number;
-  height: number;
 }
