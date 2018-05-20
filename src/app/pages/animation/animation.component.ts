@@ -15,6 +15,7 @@ export class AnimationComponent implements OnInit {
 
   public animationProjets: AnimationProject[] = [];
   public carouselArray: AnimationProject[];
+  public lowRes = '';
   public isCarouselVisible = false;
   public isCarouselHidden = false;
 
@@ -22,10 +23,17 @@ export class AnimationComponent implements OnInit {
 
   ngOnInit() {
     this.getAnimationProjets();
+    this.getWindowSize();
   }
 
   getAnimationProjets(): void {
     this.animationProjets = this.animationService.getProjects();
+  }
+
+  getWindowSize(): void {
+    if (window.innerWidth < 576) {
+      this.lowRes = '-low';
+    }
   }
 
   openCarousel(index) {
