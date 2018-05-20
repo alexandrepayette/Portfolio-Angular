@@ -13,7 +13,10 @@ import { AnimationProject } from './animation-project.model';
 export class AnimationComponent implements OnInit {
   @HostBinding('class') displayBlockClass = 'd-block';
 
-  animationProjets: AnimationProject[] = [];
+  public animationProjets: AnimationProject[] = [];
+  public carouselArray: AnimationProject[];
+  public isCarouselVisible = false;
+  public isCarouselHidden = false;
 
   constructor( private animationService: AnimationService) { }
 
@@ -23,5 +26,21 @@ export class AnimationComponent implements OnInit {
 
   getAnimationProjets(): void {
     this.animationProjets = this.animationService.getProjects();
+  }
+
+  openCarousel(index) {
+    // Reordering the originalOrderArray from the clicked item index
+    this.carouselArray = this.animationProjets.slice(index).concat(this.animationProjets.slice(0, index));
+    this.isCarouselVisible = true;
+  }
+
+  closeCarousel() {
+    // Apply fade-out css class to the carousel section
+    this.isCarouselHidden = true;
+
+    setTimeout(() => {
+      this.isCarouselVisible = false;
+      this.isCarouselHidden = false;
+    }, 200);
   }
 }
