@@ -1,16 +1,17 @@
 @import "../../../../scss/variables";
 
-.item-project-container {
-  height: 100%;
+.trianglejaune {
+  border-bottom-color: $yellow;
+}
 
-  .trianglejaune {
-    border-bottom-color: $yellow;
-  }
+.item-project-container.web-design {
+  margin: 0;
 }
 
 @media (max-width: 380px) {
-  .item-project-container {
+  .item-project-container.web-design {
     font-size: 0.7rem;
+    width: 100%;
 
     .project-title {
       padding: 0.3rem 0.4rem 0 0.4rem;
@@ -41,8 +42,9 @@
 }
 
 @media (min-width: 381px) and (max-width: 575px) {
-  .item-project-container {
+  .item-project-container.web-design {
     font-size: 0.8rem;
+    width: 100%;
 
     .project-title {
       padding: 0.4rem 0.81rem 0 0.5rem;
@@ -73,8 +75,10 @@
 }
 
 @media (min-width: 576px) {
-  .item-project-container {
+  .item-project-container.web-design {
     font-size: 0.9rem;
+    height: 7.69rem;
+    width: 10.188rem;
 
     .project-title {
       padding: 0.5rem 0.81rem 0 0.7rem;
@@ -83,8 +87,10 @@
 }
 
 @media (min-width: 768px) {
-  .item-project-container {
+  .item-project-container.web-design {
     font-size: 0.9rem;
+    width: 10.125rem;
+    height: 7.19rem;
 
     .triangle-bottomright {
       border-left-width: 3.8rem;
@@ -107,8 +113,10 @@
 }
 
 @media (min-width: 992px) {
-  .item-project-container {
+  .item-project-container.web-design {
     font-size: 1.063rem;
+    height: 10.31rem;
+    width: 13.875rem;
 
     .triangle-bottomright {
       border-left-width: 5.15rem;
@@ -127,5 +135,12 @@
         height: 1.68rem;
       }
     }
+  }
+}
+
+@media (min-width: 1200px) {
+  .item-project-container.web-design {
+    height: 9.75rem;
+    width: 13rem;
   }
 }
