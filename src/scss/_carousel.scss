@@ -118,10 +118,10 @@
 }
 
 
-@media (min-width: 381px) and (max-width: 575px) {
+@media (min-width: 300px) and (max-width: 575px) {
 
   .carousel-container ui-carousel .ui-carousel-item {
-    padding: 0 3rem 4.2rem 1.7rem;
+    padding: 0 1.94rem 5.88rem 0.88rem;
   }
 
   .carousel-container ui-carousel .arrow.left {
@@ -146,6 +146,15 @@
     }
   }
 
+  .carousel-container .close-carousel {
+    top: 0.6rem;
+    right: 1.6rem;
+  }
+
+  .carousel-container ui-carousel .ui-carousel-item .carousel-footer p:first-child {
+    font-size: 1rem;
+  }
+
   // CCS hack for ie 10 & 11
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .carousel-container ui-carousel .ui-carousel-item img {
@@ -160,6 +169,72 @@
       flex-shrink: 0;
       width: 95%;
     }
+  }
+}
+
+
+// Iphone landscape
+@media only screen
+and (min-device-width: 320px)
+and (max-device-height: 520px)
+and (orientation: landscape) {
+
+  .carousel-container ui-carousel .ui-carousel-item {
+    padding: 0 3rem 4.2rem 1.7rem;
+  }
+
+  .carousel-container ui-carousel .arrow.left {
+    left: 3%;
+    top: 45%;
+  }
+
+  .carousel-container ui-carousel .arrow.right {
+    right: 3%;
+    top: 45%;
+  }
+
+  arrow .arrow {
+    height: 45px !important;
+
+    &::before {
+      width: 22px !important;
+    }
+
+    &::after {
+      width: 22px !important;
+    }
+  }
+
+  section.carousel-container ui-carousel .ui-carousel-item {
+    padding: 0;
+
+    img {
+      max-width: 81%;
+      margin: 0.75rem auto 0 auto;
+      padding: 0 0 3.44rem 0;
+    }
+
+    video {
+      width: 81%;
+      margin: 0;
+      padding: 0.63rem 0 4.81rem 0;
+    }
+  }
+
+  .carousel-container ui-carousel .ui-carousel-item .carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.75rem;
+
+    p:nth-child(2){
+      margin: 0.25rem 0 0 0.56rem;
+    }
+  }
+
+  .carousel-container .close-carousel {
+    top: 0.6rem;
+    right: 1rem;
   }
 }
 

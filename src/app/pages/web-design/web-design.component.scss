@@ -128,6 +128,7 @@ div.web-design-items-container {
     h1 {
       font-size: 2rem;
       margin: 0 0 0.15rem 0;
+      padding: 0;
     }
 
     ng-select.web-design-sort {
@@ -140,9 +141,9 @@ div.web-design-items-container {
   }
 
   app-web-design-item {
+    margin: 0 2% 2% 0;
     height: 20vw;
     width: 32%;
-    margin: 0 2% 2% 0;
   }
 
   app-web-design-item:nth-child(3n) {
@@ -160,6 +161,7 @@ div.web-design-items-container {
     h1 {
       font-size: 2.05rem;
       margin: 0 0 0.3rem 0;
+      padding: 0;
     }
 
     ng-select.web-design-sort {
@@ -172,9 +174,9 @@ div.web-design-items-container {
   }
 
   app-web-design-item {
+    margin: 0 2% 2% 0;
     height: 20vw;
     width: 32%;
-    margin: 0 2% 2% 0;
   }
 
   app-web-design-item:nth-child(3n) {
@@ -184,8 +186,6 @@ div.web-design-items-container {
 
 @media (min-width: 576px) {
   app-web-design-item {
-    height: 7.69rem;
-    width: 32%;
     margin: 0 2% 0.75rem 0;
   }
 
@@ -197,8 +197,6 @@ div.web-design-items-container {
 @media (min-width: 768px) {
   app-web-design-item,
   app-web-design-item:nth-child(3n) {
-    width: 23.5%;
-    height: 7.19rem;
     margin: 0 2% 0.94rem 0;
   }
 
@@ -210,8 +208,6 @@ div.web-design-items-container {
 @media (min-width: 992px) {
   app-web-design-item,
   app-web-design-item:nth-child(3n) {
-    height: 10.31rem;
-    width: 23.85%;
     margin: 0 1.5% 0.94rem 0;
   }
 
@@ -224,9 +220,7 @@ div.web-design-items-container {
   app-web-design-item,
   app-web-design-item:nth-child(3n),
   app-web-design-item:nth-child(4n){
-    height: 9.75rem;
-    width: 18.8%;
-    margin: 0 1.5% 1.13rem 0;
+    margin: 0 1rem 1.13rem 0;
   }
 
   app-web-design-item:nth-child(5n) {
