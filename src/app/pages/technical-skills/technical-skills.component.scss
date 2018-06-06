@@ -1,0 +1,32 @@
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2.7rem;
+  font-weight: 200;
+  padding: 1.38rem 0 0 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    font-size: 0.92rem;
+    line-height: 1.58rem;
+
+    &::before {
+      content: "- ";
+    }
+  }
+}
+
+section:last-child {
+  margin: 0 0 5rem 0;
+}
