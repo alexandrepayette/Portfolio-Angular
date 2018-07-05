@@ -35,3 +35,62 @@ ul {
   margin: 0.35rem 0 0.81rem 2rem;
   padding: 0;
 }
+
+@media (max-width: 380px) {
+
+  section:last-child {
+    margin: 0 0 7rem 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  img {
+    max-height: 1.25rem;
+  }
+
+  p,
+  ul {
+    font-size: 0.88rem;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 575px) {
+
+  section:last-child {
+    margin: 0 0 6rem 0;
+  }
+
+  h1 {
+    font-size: 2.05rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+    margin: 2rem 0 0.75rem 0;
+  }
+
+  p,
+  ul {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p,
+  ul {
+    font-size: 0.94rem;
+  }
+}
