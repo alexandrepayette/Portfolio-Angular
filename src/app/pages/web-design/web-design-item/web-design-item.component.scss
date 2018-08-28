@@ -6,6 +6,12 @@
 
 .item-project-container.web-design {
   margin: 0;
+
+  &:hover {
+    .triangle-bottomright {
+      right: 0;
+    }
+  }
 }
 
 @media (max-width: 380px) {
