@@ -15,7 +15,7 @@ export class WebDesignItemComponent implements OnInit {
 
   @Input() inputProject: WebProject;
 
-  imageUrl = 'url(http://acidvoice.com/portfolio_angular/assets/img/web_design_thumb/';
+  imageUrl = 'url(https://acidvoice.com/portfolio_angular/assets/img/web_design_thumb/';
   public thumnailSize: string;
 
   getWindowSize(): void {
