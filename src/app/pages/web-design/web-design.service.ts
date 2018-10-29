@@ -8,7 +8,7 @@ export class WebDesignService {
 
   constructor(private http: HttpClient) { }
 
-  projectUrl = 'http://portfolio.acidvoice.com/displayWebDesign.php';
+  projectUrl = 'https://portfolio.acidvoice.com/displayWebDesign.php';
 
   getProjects(): Observable<WebProject[]> {
     return this.http.get<WebProject[]>(this.projectUrl);
