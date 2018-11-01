@@ -29,6 +29,7 @@
 
     <ui-carousel-item *ngFor="let project of carouselArray;">
       <video controls
+             preload="none"
              [poster]="'/assets/img/animation/' + project.imageUrl + '-video.jpg'"
              [style.max-width.px]="project.width">
         <source
