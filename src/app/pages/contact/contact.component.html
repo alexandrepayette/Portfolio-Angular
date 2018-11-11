@@ -1,3 +1,113 @@
-<p>
-  Soon
-</p>
+<section>
+  <div class="container">
+    <h1 class="col-12">
+      Contact
+    </h1>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="row-contact"
+           [ngClass]="{'invalid-field': !!contactForm.get('firstName').errors?.required
+                                        && contactForm.get('firstName').touched}">
+        <label class="label">First Name</label>
+        <div class="d-flex align-items-center">
+          <input type="text"
+                 id="firstName"
+                 formControlName="firstName">
+          <img src="assets/img//contact/check-mark.png"
+               alt="First Name Valid"
+               class="img-valid"
+               *ngIf="contactForm.get('firstName').valid">
+        </div>
+        <p>
+          Please enter your first name.
+        </p>
+      </div>
+
+      <div class="row-contact"
+           [ngClass]="{'invalid-field': !!contactForm.get('lastName').errors?.required
+                                        && contactForm.get('lastName').touched}">
+        <label class="label">Last Name:</label>
+        <div class="d-flex align-items-center">
+          <input type="text"
+                 id="lastName"
+                 formControlName="lastName">
+          <img src="assets/img//contact/check-mark.png"
+               alt="Last Name valid"
+               class="img-valid"
+               *ngIf="contactForm.get('lastName').valid">
+        </div>
+        <p>
+          Please enter your last name.
+        </p>
+      </div>
+
+      <div class="row-contact email-container"
+           [ngClass]="{'invalid-field': contactForm.get('email').touched
+                                        && (!!contactForm.get('email').errors?.required
+                                        || contactForm.get('email').hasError('pattern'))}">
+        <label for="email">Email:</label>
+        <div class="d-flex align-items-center">
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            (focus)="eventEmailFocus()"
+            (blur)="eventEmailBlur()">
+          <img src="assets/img//contact/check-mark.png"
+               alt="Email valid"
+               class="img-valid"
+               *ngIf="contactForm.get('email').valid">
+        </div>
+        <p *ngIf="!!contactForm.get('email').errors?.required && contactForm.get('email').touched">
+          Please enter your email.
+        </p>
+        <p *ngIf="contactForm.get('email').hasError('pattern')
+              && contactForm.get('email').dirty
+              && contactForm.get('email').touched"
+           [ngClass]="{'focus-hidden': isEmailInput}">
+          Please enter a valid email!
+        </p>
+      </div>
+
+      <div class="row-contact comment-container"
+           [ngClass]="{'invalid-field': contactForm.get('comment').touched
+                                        && (!!contactForm.get('comment').errors?.required
+                                        || contactForm.get('comment').hasError('pattern'))}">
+        <label for="email">Comment:</label>
+        <div class="d-flex">
+        <textarea id="comment"
+                  formControlName="comment"
+                  rows="4"
+                  cols="55">
+        </textarea>
+        <img src="assets/img//contact/check-mark.png"
+             alt="Last Name valid"
+             class="img-valid align-self-end"
+             *ngIf="contactForm.get('comment').valid">
+        </div>
+        <p *ngIf="!!contactForm.get('comment').errors?.required && contactForm.get('comment').touched" class="error">
+          Please enter a comment.
+        </p>
+        <p *ngIf="contactForm.get('comment').hasError('pattern')
+              && contactForm.get('comment').dirty
+              && contactForm.get('comment').touched">
+          Special characters are not allowed
+        </p>
+      </div>
+
+      <div class="row-contact align-items-start">
+        <button class="btn btn-light"
+                type="submit"
+                [disabled]="contactForm.invalid">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <img src="assets/img//contact/loading_contact.gif" alt="loading" id="progress_contact" class="ng-hide" data-ng-show="showLoading" />
+  </div>
+</section>
