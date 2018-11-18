@@ -85,5 +85,9 @@ section:nth-of-type(2) {
       }
     }
   }
-}
 
+  span.confirmation {
+    color: $woodsmoke-grey;
+    margin: 0 0 0 0.5rem;
+  }
+}
