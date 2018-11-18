@@ -99,15 +99,14 @@
         </p>
       </div>
 
-      <div class="row-contact align-items-start">
+      <div class="row-contact flex-row align-items-center">
         <button class="btn btn-light"
                 type="submit"
-                [disabled]="contactForm.invalid">
+                [disabled]="contactForm.invalid || isSumited">
           Submit
         </button>
+        <span *ngIf="displayServerMessage" class="confirmation">{{serverMessage}}</span>
       </div>
     </form>
-
-    <img src="assets/img//contact/loading_contact.gif" alt="loading" id="progress_contact" class="ng-hide" data-ng-show="showLoading" />
   </div>
 </section>
