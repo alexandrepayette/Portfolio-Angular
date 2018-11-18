@@ -19,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { WebDesignService } from './pages/web-design/web-design.service';
 import { PhotoService } from './pages/photo/photo.service';
 import { AnimationService } from './pages/animation/animation.service';
+import { ContactService } from './pages/contact/contact.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AnimationService } from './pages/animation/animation.service';
   providers: [
     WebDesignService,
     PhotoService,
-    AnimationService
+    AnimationService,
+    ContactService
   ],
   bootstrap: [AppComponent]
 })
