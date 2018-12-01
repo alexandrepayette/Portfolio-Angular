@@ -152,8 +152,8 @@ export class PhotoComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => {
+    window.clearTimeout(this.timeout);
+    this.timeout = window.setTimeout(() => {
       this.getWindowSize();
     }, 750);
   }
