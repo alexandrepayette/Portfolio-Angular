@@ -4,6 +4,7 @@ import { PhotoItem } from './photo-item.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
+import { throwError } from 'rxjs';
 import { catchError, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
@@ -60,7 +61,7 @@ export class PhotoComponent implements OnInit, OnDestroy {
             this.getErrorMessage();
             this.setHttpErrorMessage(err.message);
           }
-          return Observable.throw(err);
+          return throwError(err);
         })
       );
 
@@ -76,7 +77,7 @@ export class PhotoComponent implements OnInit, OnDestroy {
             this.getErrorMessage();
             this.setHttpErrorMessage(err.message);
           }
-          return Observable.throw(err);
+          return throwError(err);
         })
       );
 
@@ -107,7 +108,7 @@ export class PhotoComponent implements OnInit, OnDestroy {
           this.getErrorMessage();
           this.setHttpErrorMessage(err.message);
         }
-        return Observable.throw(err);
+        return throwError(err);
       })
     );
   }

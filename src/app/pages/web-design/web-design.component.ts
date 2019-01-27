@@ -8,6 +8,7 @@ import { ArraySortPipe } from './sort.pipe';
 import { WebProject } from './web-design-project.model';
 
 import { Observable } from 'rxjs/Observable';
+import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 // ViewEncapsulation.None -> can not use :host {} in the scss file!
@@ -62,7 +63,7 @@ export class WebDesignComponent implements OnInit {
             this.errorGetProjects = 'server';
             console.log('Server-side error: ' + err.message);
           }
-          return Observable.throw(err);
+          return throwError(err);
         })
       );
   }
