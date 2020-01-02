@@ -6,4 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-nav.component.scss']
 })
 
-export class HeaderNavComponent {}
+export class HeaderNavComponent {
+
+  public isBlackThemeEnabled = false;
+  private htmlRoot = document.querySelector(':root');
+
+  toggleTheme() {
+    this.isBlackThemeEnabled = !this.isBlackThemeEnabled;
+
+    if (this.isBlackThemeEnabled) {
+      this.htmlRoot.classList.add('dark-theme');
+    } else {
+      this.htmlRoot.classList.remove('dark-theme');
+    }
+  }
+}
