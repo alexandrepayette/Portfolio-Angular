@@ -1,5 +1,3 @@
-@import "../../../scss/variables";
-
 h1 {
   text-transform: uppercase;
   font-weight: 200;
@@ -14,17 +12,27 @@ div.pagination-container {
       label {
         cursor: pointer;
       }
+
+      .custom-control-label {
+        color: var(--radio-label);
+
+        &:before {
+          background-color: var(--geyser-blue);
+        }
+      }
     }
   }
 
   div.pages-number-container{
     button.active-button {
-      background-color: darken($zircon-blue, 2%);
-      border-color: darken($loblolly-blue, 12%);
+      background-color: var(--zircon-blue-20);
+      border-color: var(--loblolly-blue-1200);
+      color: var(--header-section);
 
       &:hover {
-        background-color: lighten($zircon-blue, 1%);
-        border-color: darken($loblolly-blue, 10%);
+        background-color: var(--btn-bg-hover);
+        border-color: var(--loblolly-blue-1200);
+        color: var(--header-section);
       }
     }
   }
