@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']
 })
-export class ExperienceComponent {
-}
+export class ExperienceComponent {}
