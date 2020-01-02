@@ -42,11 +42,17 @@ section:nth-of-type(2) {
   }
 
   label {
+    color: var(--error-card-msg);
     margin: 0 0 0.19rem;
   }
 
   input,
   textarea {
+    background-color: var(--bg-input);
+    border: 0.063rem solid var(--border-input);
+    color: var(--error-card-msg);
+    outline: none;
+    padding: 0.13rem 0.38rem;
     min-width: 16rem;
   }
 
@@ -70,24 +76,29 @@ section:nth-of-type(2) {
   }
 
   button.btn-light {
-    background-color: $zircon-blue;
-    border-color: lighten($fiord-blue, 18%);
+    background-color: var(--zircon-blue);
+    border-color: var(--fiord-blue-1800);
+    color: var(--error-card-msg);
 
     &:hover {
-      background-color: lighten($zircon-blue, 4%);
-      border-color: lighten($fiord-blue, 11%);
+      background-color: var(--drop-down-bg);
+      border-color: var(--fiord-blue-1100);
     }
 
     &:disabled {
+      border-color: var(--btn-disabled-border);
+      color: var(--btn-disabled-border);
+
       &:hover {
-        background-color: $zircon-blue;
-        border-color: lighten($fiord-blue, 18%);
+        background-color: var(--zircon-blue);
+        border-color: var(--btn-disabled-border);
+        color: var(--btn-disabled-border);
       }
     }
   }
 
   span.confirmation {
-    color: $woodsmoke-grey;
+    color: var(--woodsmoke-grey);
     margin: 0 0 0 0.5rem;
   }
 }
