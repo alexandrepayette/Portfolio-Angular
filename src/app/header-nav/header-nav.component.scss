@@ -1,31 +1,138 @@
-@media (max-width: 575px) {
-  .navbar-brand {
-    img {
-      width: 90px;
+@import "../../scss/variables";
+
+.logo {
+  path {
+    fill: var(--logo);
+  }
+}
+
+.navbar-brand {
+  padding: 0.5rem 0 0 0;
+}
+
+.navbar-toggler {
+  color: var(--inner-loading);
+  border-color: var(--fiord-blue-800);
+
+  &:hover {
+    border-color: var(--gray);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.switch-theme-container {
+  display: flex;
+  align-items: center;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.19rem;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider:before {
+      @include transformation(translateX, 1.13rem);
     }
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-switch-bg);
+  border-radius: 1.25rem;
+  @include transition(background-color, 0.3s);
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 0.938rem;
+    width: 0.938rem;
+    left: 0.25rem;
+    bottom: 0.13rem;
+    background-color: var(--pure-white);
+    border-radius: 50%;
+    @include transition(all, 0.25s);
+  }
+}
+
+@media (max-width: 575px) {
+  .logo {
+    width: 5.63rem;
+  }
+
+  .switch-theme-container {
+    flex-direction: row;
+    margin: 0.63rem 0 1rem 0;
+    font-size: 0.68rem;
+  }
+
+  .switch {
+    margin: 0 0 0 0.56rem;
   }
 }
 
 @media (min-width: 576px) {
-  .navbar-brand {
-    img {
-      width: 100px;
-    }
+  .logo {
+    width: 6.25rem;
+  }
+
+  .switch-theme-container {
+    flex-direction: row;
+    margin: 0.63rem 0 1rem 0;
+    font-size: 0.68rem;
+  }
+
+  .switch {
+    margin: 0 0 0 0.56rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .switch-theme-container {
+    flex-direction: column;
+    margin: 0 0 0 0.75rem;
+    font-size: 0.63rem;
+  }
+
+  .switch {
+    margin: 0.19rem 0 0 0;
   }
 }
 
 @media (min-width: 992px) {
-  .navbar-brand {
-    img {
-      width: 114px;
-    }
+  .logo {
+    width: 7.13rem;
+  }
+
+  .switch-theme-container {
+    flex-direction: row;
+    margin: 0.25rem 0 0 0;
+    font-size: 0.69rem;
+  }
+
+  .switch {
+    margin: 0 0 0 0.5rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .navbar-brand {
-    img {
-      width: 130px;
-    }
+  .logo {
+    width: 8.13rem;
   }
 }
