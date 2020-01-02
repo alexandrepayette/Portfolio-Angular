@@ -5,3 +5,9 @@
   -o-transition: $type $time $ease $delay;
   transition: $type $time $ease $delay;
 }
+
+@mixin transformation($type, $lenght) {
+  -webkit-transform: $type+'('+$lenght+')';
+  -ms-transform: $type+'('+$lenght+')';
+  transform: $type+'('+$lenght+')';
+}
