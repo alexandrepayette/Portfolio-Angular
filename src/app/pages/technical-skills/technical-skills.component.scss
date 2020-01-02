@@ -12,18 +12,20 @@ h1 {
 h2 {
   font-size: 1.8rem;
   font-weight: 400;
+  color: var(--drop-down-text);
 }
 
 ul {
   list-style: none;
+  color: var(--error-card-msg);
+}
 
-  li {
-    font-size: 0.92rem;
-    line-height: 1.58rem;
+li {
+  font-size: 0.92rem;
+  line-height: 1.58rem;
 
-    &::before {
-      content: "- ";
-    }
+  &::before {
+    content: "- ";
   }
 }
 
