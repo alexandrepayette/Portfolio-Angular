@@ -14,20 +14,22 @@ section.header-section {
 
     &.focused:not(.opened) {
       .ng-select-container {
-        border-color: $loblolly-blue;
+        border-color: var(--loblolly-blue);
         -webkit-box-shadow: none;
         box-shadow: none;
       }
 
       .ng-arrow-wrapper {
         display: block;
-        border-color: $loblolly-blue;
+        border-color: var(--ghost-blue);
       }
     }
 
     .ng-select-container {
       border-radius: 0.31rem;
-      border: 0.063rem solid $gray-400;
+      border: 0.063rem solid var(--ghost-blue);
+      background-color: var(--drop-down-bg);
+      color: var(--shark-blue-1000);
       cursor: pointer;
       height: 2.25rem;
       overflow: visible;
@@ -36,7 +38,7 @@ section.header-section {
         padding: 0.25rem 0 0 0.75rem;
 
         .ng-placeholder {
-          color: $tiber-blue;
+          color: var(--tiber-blue);
         }
 
         .ng-input {
@@ -70,20 +72,21 @@ section.header-section {
     .ng-arrow-wrapper {
       padding: 0.31rem 0 0 0.063rem;
       border-radius: 0.31rem;
-      border: 0.063rem solid $gray-400;
+      border: 0.063rem solid var(--ghost-blue);
+      background-color: var(--drop-down-bg);
       height: 2.25rem;
       margin: -0.063rem -2.5rem 0 0;
       width: 2.19rem;
       display: block;
 
       .ng-arrow {
-        border-color: $tiber-blue transparent transparent;
+        border-color: var(--tiber-blue) transparent transparent;
         border-style: solid;
         border-width: 0.5rem 0.5rem 0.13rem;
-        transition: all 0.3s;
+        @include transition(all, 0.3s);
 
         &:hover {
-          border-color: $venice-blue transparent transparent;
+          border-color: var(--venice-blue) transparent transparent;
         }
       }
     }
@@ -91,7 +94,8 @@ section.header-section {
     .ng-dropdown-panel {
       width: 15.56rem;
       border-radius: 0.38rem;
-      border: 0.063rem solid $gray-400;
+      border: 0.063rem solid var(--ghost-blue);
+      background-color: var(--drop-down-bg);
       margin: 0.38rem 0 0 0;
       opacity: 0;
       height: 0.81rem;
@@ -101,35 +105,36 @@ section.header-section {
 
       .ng-dropdown-panel-items {
         .ng-option {
-          background-color: $white;
-          padding: 0.5rem 10.63rem;
+          background-color: var(--drop-down-bg);
+          color: var(--drop-down-text);
+          padding: 0.5rem 0.69rem;
 
           &.ng-option-marked {
-            color: $daintree-blue;
-            background-color: $zircon-blue;
+            color: var(--daintree-blue);
+            background-color: var(--zircon-blue);
           }
 
           &.ng-option-selected {
-            color: $daintree-blue;
-            background-color: $aqua-squeeze-blue;
+            color: var(--daintree-blue);
+            background-color: var(--aqua-squeeze-blue);
           }
         }
       }
     }
 
     &.ng-select-opened > .ng-select-container .ng-arrow {
-      border-color: $tiber-blue transparent transparent;
+      border-color: var(--tiber-blue) transparent transparent;
       border-width: 0.5rem 0.5rem 0.13rem;
       transform: rotate(180deg);
 
       &:hover {
-        border-color: $venice-blue transparent transparent;
+        border-color: var(--venice-blue) transparent transparent;
       }
     }
 
     &.ng-select-opened > .ng-dropdown-panel {
       opacity: 1;
-      height: 10.25rem;
+      height: 10.1rem;
     }
   }
 }

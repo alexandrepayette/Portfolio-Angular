@@ -4,35 +4,68 @@ p {
   margin: 0;
 }
 
-button.btn-light {
-  background-color: lighten($zircon-blue, 2%);
-  border-color: $loblolly-blue;
+h1 {
+  color: var(--header-section);
+}
 
-  &:hover {
-    background-color: lighten($zircon-blue, 4%);
-    border-color: darken($loblolly-blue, 5%);
+.navbar {
+  background-color: var(--shark-blue);
+
+  .nav-link {
+    color: var(--oslo-gray);
+
+    &:hover {
+      color: var(--iron-gray);
+    }
+  }
+
+  .nav-item {
+    &.active{
+      .nav-link {
+        color: var(--logo);
+      }
+    }
   }
 }
 
-@-webkit-keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+.error-card {
+  background-color: var(--error-card);
+  color: var(--error-card-msg);
+}
+
+button.btn-light {
+  background-color: var(--zircon-blue-200);
+  border-color: var(--loblolly-blue);
+  color: var(--radio-label);
+
+  &:hover {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--loblolly-blue-500);
+    color: var(--error-card-msg);
   }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:not(:disabled):not(.disabled):active {
+    background-color: var(--btn-bg-hover);
+    border-color: var(--loblolly-blue-1200);
+    color: var(--error-card-msg);
+    outline: none;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 }
 
 @keyframes loading {
   0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    @include transformation(rotate, 0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    @include transformation(rotate, 360deg);
   }
 }
 
@@ -41,15 +74,19 @@ button.btn-light {
   width: 1.7rem;
   height: 1.7rem;
   margin: 0 0.6rem 0 0;
-  border-top: 0.2rem solid $iron-gray;
-  border-right: 0.2rem solid $iron-gray;
-  border-bottom: 0.2rem solid $iron-gray;
-  border-left: 0.2rem solid $fiord-blue;
+  border-top: 0.2rem solid var(--outter-loading);
+  border-right: 0.2rem solid var(--outter-loading);
+  border-bottom: 0.2rem solid var(--outter-loading);
+  border-left: 0.2rem solid var(--inner-loading);
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-animation: loading 0.9s infinite linear;
   animation: loading 0.9s infinite linear;
+}
+
+.loader-msg {
+  color: var(--drop-down-text);
 }
 
 .warning {

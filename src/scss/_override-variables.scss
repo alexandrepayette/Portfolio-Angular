@@ -1,32 +1,30 @@
-@import "../scss/colors";
-
 //// stylelint-disable
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #969696 !default;
-$gray-700: #424242 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black:    #000 !default;
+//$white:    #fff !default;
+//$gray-100: #f8f9fa !default;
+//$gray-200: #e9ecef !default;
+//$gray-300: #dee2e6 !default;
+//$gray-400: #ced4da !default;
+//$gray-500: #adb5bd !default;
+//$gray-600: #969696 !default;
+//$gray-700: #424242 !default;
+//$gray-800: #343a40 !default;
+//$gray-900: #212529 !default;
+//$black:    #000 !default;
+//
+//$grays: () !default;
+//$grays: map-merge((
+//  "100": $gray-100,
+//  "200": $gray-200,
+//  "300": $gray-300,
+//  "400": $gray-400,
+//  "500": $gray-500,
+//  "600": $gray-600,
+//  "700": $gray-700,
+//  "800": $gray-800,
+//  "900": $gray-900
+//), $grays);
 
-$grays: () !default;
-$grays: map-merge((
-  "100": $gray-100,
-  "200": $gray-200,
-  "300": $gray-300,
-  "400": $gray-400,
-  "500": $gray-500,
-  "600": $gray-600,
-  "700": $gray-700,
-  "800": $gray-800,
-  "900": $gray-900
-), $grays);
-
-$blue:    #002e86!default;
+$blue:    #002e86 !default;
 $indigo:  #6610f2 !default;
 $purple:  #5f0e92 !default;
 $pink:    #da1a62 !default;
@@ -38,46 +36,46 @@ $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 $brown:   #543602 !default;
 
-$colors: () !default;
-$colors: map-merge((
-  "blue":       $blue,
-  "indigo":     $indigo,
-  "purple":     $purple,
-  "pink":       $pink,
-  "red":        $red,
-  "orange":     $orange,
-  "brown":      $brown,
-  "yellow":     $yellow,
-  "green":      $green,
-  "teal":       $teal,
-  "cyan":       $cyan,
-  "white":      $white,
-  "gray":       $gray-600,
-  "gray-dark":  $gray-800
-), $colors);
-
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-800 !default;
-$darker:        $gray-900!default;
-
-$theme-colors: () !default;
-$theme-colors: map-merge((
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark,
-  "darker":     $darker
-), $theme-colors);
+//$colors: () !default;
+//$colors: map-merge((
+//  "blue":       $blue,
+//  "indigo":     $indigo,
+//  "purple":     $purple,
+//  "pink":       $pink,
+//  "red":        $red,
+//  "orange":     $orange,
+//  "brown":      $brown,
+//  "yellow":     $yellow,
+//  "green":      $green,
+//  "teal":       $teal,
+//  "cyan":       $cyan,
+//  "white":      $white,
+//  "gray":       $gray-600,
+//  "gray":  $gray-800
+//), $colors);
+//
+//$primary:       $blue !default;
+//$secondary:     $gray-600 !default;
+//$success:       $green !default;
+//$info:          $cyan !default;
+//$warning:       $yellow !default;
+//$danger:        $red !default;
+//$light:         $gray-100 !default;
+//$dark:          $gray-800 !default;
+//$darker:        $gray-900!default;
+//
+//$theme-colors: () !default;
+//$theme-colors: map-merge((
+//  "primary":    $primary,
+//  "secondary":  $secondary,
+//  "success":    $success,
+//  "info":       $info,
+//  "warning":    $warning,
+//  "danger":     $danger,
+//  "light":      $light,
+//  "dark":       $dark,
+//  "darker":     $darker
+//), $theme-colors);
 //// stylelint-enable
 
 //// Set a specific jump point for requesting color jumps
@@ -393,13 +391,13 @@ $h1-font-size:                  2.7rem;
 //$custom-control-description-disabled-color:     $gray-600 !default;
 //
 //$custom-control-indicator-checked-color:        $white !default;
-$custom-control-indicator-checked-bg:             $fiord-blue !default;
+$custom-control-indicator-checked-bg:             var(--fiord-blue) !default;
 //$custom-control-indicator-checked-box-shadow:   none !default;
 //
 //$custom-control-indicator-focus-box-shadow:     0 0 0 1px $body-bg, $input-btn-focus-box-shadow !default;
 //
 //$custom-control-indicator-active-color:         $white !default;
-$custom-control-indicator-active-bg:              lighten($fiord-blue, 8%) !default;
+$custom-control-indicator-active-bg:              var(--fiord-blue-800) !default;
 //$custom-control-indicator-active-box-shadow:    none !default;
 //
 //$custom-checkbox-indicator-border-radius:       $border-radius !default;

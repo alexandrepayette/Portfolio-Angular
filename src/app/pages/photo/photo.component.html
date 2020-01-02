@@ -83,10 +83,10 @@
   <div *ngIf="errorGetPhotos === 'noError' || errorGetPhotos === undefined; else errorMessage"
        class="d-flex align-items-center">
     <div class="loader"></div>
-    <p>LOADING PHOTOS FROM Flickr</p>
+    <p class="loader-msg">LOADING PHOTOS FROM Flickr</p>
   </div>
   <ng-template #errorMessage>
-    <div class="card justify-content-start align-items-center flex-row p-2">
+    <div class="error-card card justify-content-start align-items-center flex-row p-2">
       <img src="../../assets/img/warning.svg" class="warning mx-2">
       <p class="mr-2">
         <span>SOMETHING WENT WRONG: </span><span>{{errorGetPhotos}}</span>

@@ -62,11 +62,11 @@
 
     <div *ngSwitchCase="'noError'" class="d-flex align-items-center">
       <div class="loader"></div>
-      <p>LOADING WEB PROJECT</p>
+      <p class="loader-msg">LOADING WEB PROJECT</p>
     </div>
 
     <div *ngSwitchCase="'network'"
-         class="card justify-content-start align-items-center flex-row p-2">
+         class="error-card card justify-content-start align-items-center flex-row p-2">
       <img src="../../assets/img/warning.svg" class="warning mx-2">
       <p class="mr-2">
         SOMETHING WENT WRONG WITH THE NETWORK :(
@@ -74,7 +74,7 @@
     </div>
 
     <div *ngSwitchCase="'server'"
-         class="card justify-content-start align-items-center flex-row p-2">
+         class="error-card card justify-content-start align-items-center flex-row p-2">
       <img src="../../assets/img/warning.svg" class="warning mx-2">
       <p class="mr-2">
         SOMETHING WENT WRONG WITH THE SERVER :(
