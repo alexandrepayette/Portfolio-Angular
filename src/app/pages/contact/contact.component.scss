@@ -1,5 +1,10 @@
 @import "../../../scss/variables";
 
+:host {
+  display: block;
+  padding: 0 0 4.5rem;
+}
+
 h1 {
   text-transform: uppercase;
   font-size: 2.7rem;
