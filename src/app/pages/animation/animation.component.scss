@@ -5,7 +5,7 @@ h1 {
 }
 
 section.animation-items-container {
-  margin:0 0 3.68rem 0;
+  margin: 0 0 3.68rem 0;
 }
 
 section.carousel-container {
@@ -114,6 +114,10 @@ section.carousel-container {
   .item-project-container:nth-child(3n) {
     margin: 0 0 2% 0;
   }
+
+  .animation-items-container {
+    padding: 0 0 1.13rem;
+  }
 }
 
 @media (min-width: 576px) {
@@ -154,6 +158,10 @@ section.carousel-container {
   .item-project-container:nth-child(3n) {
     margin: 0 0 0.65rem 0;
   }
+
+  .animation-items-container {
+    padding: 0 0 1.13rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -162,8 +170,8 @@ section.carousel-container {
   .item-project-container:nth-child(3n) {
     font-size: 0.9rem;
     line-height: 1.1rem;
-    width: 10.125rem;
-    height: 7.113rem;
+    width: 10.13rem;
+    height: 7.11rem;
     margin: 0 0.7rem 0.7rem 0;
   }
 
@@ -214,9 +222,9 @@ section.carousel-container {
 @media (min-width: 1200px) {
   .item-project-container,
   .item-project-container:nth-child(3n) {
-    font-size: 1.063rem;
+    font-size: 1.06rem;
     line-height: 1.5rem;
-    height: 11.625rem;
+    height: 11.63rem;
     width: 16.75rem;
   }
 }
